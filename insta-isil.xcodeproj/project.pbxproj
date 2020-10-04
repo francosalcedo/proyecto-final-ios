@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2326715B252A4A690043AF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326715A252A4A690043AF10 /* AppDelegate.swift */; };
+		2326715D252A4A690043AF10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326715C252A4A690043AF10 /* SceneDelegate.swift */; };
+		2326715F252A4A690043AF10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326715E252A4A690043AF10 /* ViewController.swift */; };
+		23267162252A4A690043AF10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23267160252A4A690043AF10 /* Main.storyboard */; };
+		23267164252A4A6A0043AF10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23267163252A4A6A0043AF10 /* Assets.xcassets */; };
+		23267167252A4A6A0043AF10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23267165252A4A6A0043AF10 /* LaunchScreen.storyboard */; };
+		23267172252A4A6A0043AF10 /* insta_isilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267171252A4A6A0043AF10 /* insta_isilTests.swift */; };
+		2326717D252A4A6A0043AF10 /* insta_isilUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326717C252A4A6A0043AF10 /* insta_isilUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2326716E252A4A6A0043AF10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2326714F252A4A690043AF10 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23267156252A4A690043AF10;
+			remoteInfo = "insta-isil";
+		};
+		23267179252A4A6A0043AF10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2326714F252A4A690043AF10 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23267156252A4A690043AF10;
+			remoteInfo = "insta-isil";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		23267157252A4A690043AF10 /* insta-isil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "insta-isil.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2326715A252A4A690043AF10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2326715C252A4A690043AF10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2326715E252A4A690043AF10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		23267161252A4A690043AF10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		23267163252A4A6A0043AF10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		23267166252A4A6A0043AF10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		23267168252A4A6A0043AF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2326716D252A4A6A0043AF10 /* insta-isilTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "insta-isilTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23267171252A4A6A0043AF10 /* insta_isilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = insta_isilTests.swift; sourceTree = "<group>"; };
+		23267173252A4A6A0043AF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23267178252A4A6A0043AF10 /* insta-isilUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "insta-isilUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2326717C252A4A6A0043AF10 /* insta_isilUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = insta_isilUITests.swift; sourceTree = "<group>"; };
+		2326717E252A4A6A0043AF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23267154252A4A690043AF10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2326716A252A4A6A0043AF10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23267175252A4A6A0043AF10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2326714E252A4A690043AF10 = {
+			isa = PBXGroup;
+			children = (
+				23267159252A4A690043AF10 /* insta-isil */,
+				23267170252A4A6A0043AF10 /* insta-isilTests */,
+				2326717B252A4A6A0043AF10 /* insta-isilUITests */,
+				23267158252A4A690043AF10 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23267158252A4A690043AF10 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23267157252A4A690043AF10 /* insta-isil.app */,
+				2326716D252A4A6A0043AF10 /* insta-isilTests.xctest */,
+				23267178252A4A6A0043AF10 /* insta-isilUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23267159252A4A690043AF10 /* insta-isil */ = {
+			isa = PBXGroup;
+			children = (
+				2326715A252A4A690043AF10 /* AppDelegate.swift */,
+				2326715C252A4A690043AF10 /* SceneDelegate.swift */,
+				2326715E252A4A690043AF10 /* ViewController.swift */,
+				23267160252A4A690043AF10 /* Main.storyboard */,
+				23267163252A4A6A0043AF10 /* Assets.xcassets */,
+				23267165252A4A6A0043AF10 /* LaunchScreen.storyboard */,
+				23267168252A4A6A0043AF10 /* Info.plist */,
+			);
+			path = "insta-isil";
+			sourceTree = "<group>";
+		};
+		23267170252A4A6A0043AF10 /* insta-isilTests */ = {
+			isa = PBXGroup;
+			children = (
+				23267171252A4A6A0043AF10 /* insta_isilTests.swift */,
+				23267173252A4A6A0043AF10 /* Info.plist */,
+			);
+			path = "insta-isilTests";
+			sourceTree = "<group>";
+		};
+		2326717B252A4A6A0043AF10 /* insta-isilUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2326717C252A4A6A0043AF10 /* insta_isilUITests.swift */,
+				2326717E252A4A6A0043AF10 /* Info.plist */,
+			);
+			path = "insta-isilUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23267156252A4A690043AF10 /* insta-isil */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23267181252A4A6A0043AF10 /* Build configuration list for PBXNativeTarget "insta-isil" */;
+			buildPhases = (
+				23267153252A4A690043AF10 /* Sources */,
+				23267154252A4A690043AF10 /* Frameworks */,
+				23267155252A4A690043AF10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "insta-isil";
+			productName = "insta-isil";
+			productReference = 23267157252A4A690043AF10 /* insta-isil.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2326716C252A4A6A0043AF10 /* insta-isilTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23267184252A4A6A0043AF10 /* Build configuration list for PBXNativeTarget "insta-isilTests" */;
+			buildPhases = (
+				23267169252A4A6A0043AF10 /* Sources */,
+				2326716A252A4A6A0043AF10 /* Frameworks */,
+				2326716B252A4A6A0043AF10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2326716F252A4A6A0043AF10 /* PBXTargetDependency */,
+			);
+			name = "insta-isilTests";
+			productName = "insta-isilTests";
+			productReference = 2326716D252A4A6A0043AF10 /* insta-isilTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		23267177252A4A6A0043AF10 /* insta-isilUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23267187252A4A6A0043AF10 /* Build configuration list for PBXNativeTarget "insta-isilUITests" */;
+			buildPhases = (
+				23267174252A4A6A0043AF10 /* Sources */,
+				23267175252A4A6A0043AF10 /* Frameworks */,
+				23267176252A4A6A0043AF10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2326717A252A4A6A0043AF10 /* PBXTargetDependency */,
+			);
+			name = "insta-isilUITests";
+			productName = "insta-isilUITests";
+			productReference = 23267178252A4A6A0043AF10 /* insta-isilUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2326714F252A4A690043AF10 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = isil.pe;
+				TargetAttributes = {
+					23267156252A4A690043AF10 = {
+						CreatedOnToolsVersion = 11.7;
+					};
+					2326716C252A4A6A0043AF10 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = 23267156252A4A690043AF10;
+					};
+					23267177252A4A6A0043AF10 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = 23267156252A4A690043AF10;
+					};
+				};
+			};
+			buildConfigurationList = 23267152252A4A690043AF10 /* Build configuration list for PBXProject "insta-isil" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2326714E252A4A690043AF10;
+			productRefGroup = 23267158252A4A690043AF10 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23267156252A4A690043AF10 /* insta-isil */,
+				2326716C252A4A6A0043AF10 /* insta-isilTests */,
+				23267177252A4A6A0043AF10 /* insta-isilUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23267155252A4A690043AF10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23267167252A4A6A0043AF10 /* LaunchScreen.storyboard in Resources */,
+				23267164252A4A6A0043AF10 /* Assets.xcassets in Resources */,
+				23267162252A4A690043AF10 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2326716B252A4A6A0043AF10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23267176252A4A6A0043AF10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23267153252A4A690043AF10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2326715F252A4A690043AF10 /* ViewController.swift in Sources */,
+				2326715B252A4A690043AF10 /* AppDelegate.swift in Sources */,
+				2326715D252A4A690043AF10 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23267169252A4A6A0043AF10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23267172252A4A6A0043AF10 /* insta_isilTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23267174252A4A6A0043AF10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2326717D252A4A6A0043AF10 /* insta_isilUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2326716F252A4A6A0043AF10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23267156252A4A690043AF10 /* insta-isil */;
+			targetProxy = 2326716E252A4A6A0043AF10 /* PBXContainerItemProxy */;
+		};
+		2326717A252A4A6A0043AF10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23267156252A4A690043AF10 /* insta-isil */;
+			targetProxy = 23267179252A4A6A0043AF10 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		23267160252A4A690043AF10 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23267161252A4A690043AF10 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		23267165252A4A6A0043AF10 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23267166252A4A6A0043AF10 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2326717F252A4A6A0043AF10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		23267180252A4A6A0043AF10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23267182252A4A6A0043AF10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "insta-isil/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "isil.pe.insta-isil";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		23267183252A4A6A0043AF10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "insta-isil/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "isil.pe.insta-isil";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		23267185252A4A6A0043AF10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "insta-isilTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "isil.pe.insta-isilTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/insta-isil.app/insta-isil";
+			};
+			name = Debug;
+		};
+		23267186252A4A6A0043AF10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "insta-isilTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "isil.pe.insta-isilTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/insta-isil.app/insta-isil";
+			};
+			name = Release;
+		};
+		23267188252A4A6A0043AF10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "insta-isilUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "isil.pe.insta-isilUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "insta-isil";
+			};
+			name = Debug;
+		};
+		23267189252A4A6A0043AF10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "insta-isilUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "isil.pe.insta-isilUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "insta-isil";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23267152252A4A690043AF10 /* Build configuration list for PBXProject "insta-isil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2326717F252A4A6A0043AF10 /* Debug */,
+				23267180252A4A6A0043AF10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23267181252A4A6A0043AF10 /* Build configuration list for PBXNativeTarget "insta-isil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23267182252A4A6A0043AF10 /* Debug */,
+				23267183252A4A6A0043AF10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23267184252A4A6A0043AF10 /* Build configuration list for PBXNativeTarget "insta-isilTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23267185252A4A6A0043AF10 /* Debug */,
+				23267186252A4A6A0043AF10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23267187252A4A6A0043AF10 /* Build configuration list for PBXNativeTarget "insta-isilUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23267188252A4A6A0043AF10 /* Debug */,
+				23267189252A4A6A0043AF10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2326714F252A4A690043AF10 /* Project object */;
+}
