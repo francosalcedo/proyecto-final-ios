@@ -22,22 +22,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        emailTextField.layer.cornerRadius = 10
-//        passwordTextField.layer.cornerRadius = 10
-//        loginButton.layer.cornerRadius = 10
-//
-//        loginButton.clipsToBounds = true
-//
-//        emailTextField.clipsToBounds = true
-//        emailTextField.layer.borderWidth = 1
-//        emailTextField.layer.borderColor = primaryColor
-//
-//        passwordTextField.clipsToBounds = true
-//        passwordTextField.layer.borderWidth = 1
-//        passwordTextField.layer.borderColor = primaryColor
-        
-        print("laNZALA")
+        emailTextField.layer.cornerRadius = 10
+        passwordTextField.layer.cornerRadius = 10
+        loginButton.layer.cornerRadius = 10
 
+        loginButton.clipsToBounds = true
+
+        emailTextField.clipsToBounds = true
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.borderColor = primaryColor
+
+        passwordTextField.clipsToBounds = true
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderColor = primaryColor
     }
 
     
