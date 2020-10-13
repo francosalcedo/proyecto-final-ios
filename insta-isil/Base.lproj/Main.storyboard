@@ -158,11 +158,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="27l-ya-2RT">
-                                <rect key="frame" x="0.0" y="-44" width="414" height="886"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27l-ya-2RT">
+                                <rect key="frame" x="0.0" y="-44" width="414" height="660"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTu-Un-rhN">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="866"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="648"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="waves-up" translatesAutoresizingMaskIntoConstraints="NO" id="Kno-YS-fsV">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
@@ -214,29 +214,22 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Ingresar"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="waves-down" translatesAutoresizingMaskIntoConstraints="NO" id="99h-NG-Zbd">
-                                                <rect key="frame" x="0.0" y="688" width="414" height="198"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="414" id="gDy-IB-eJz"/>
-                                                </constraints>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Kno-YS-fsV" firstAttribute="leading" secondItem="uTu-Un-rhN" secondAttribute="leading" id="4NY-TW-I2o"/>
                                             <constraint firstItem="4Ne-Og-Rhv" firstAttribute="top" secondItem="EZZ-XZ-BQh" secondAttribute="bottom" constant="30" id="70p-Pd-Gpt"/>
-                                            <constraint firstItem="99h-NG-Zbd" firstAttribute="centerX" secondItem="uTu-Un-rhN" secondAttribute="centerX" id="843-kp-QXH"/>
-                                            <constraint firstAttribute="trailing" secondItem="99h-NG-Zbd" secondAttribute="trailing" id="9OD-EO-w7i"/>
+                                            <constraint firstAttribute="width" constant="414" id="AS2-pW-6JX"/>
                                             <constraint firstItem="4Ne-Og-Rhv" firstAttribute="centerX" secondItem="uTu-Un-rhN" secondAttribute="centerX" id="LTs-hZ-oXC"/>
                                             <constraint firstItem="EZZ-XZ-BQh" firstAttribute="centerX" secondItem="uTu-Un-rhN" secondAttribute="centerX" id="Nvi-9s-Rdc"/>
-                                            <constraint firstItem="99h-NG-Zbd" firstAttribute="leading" secondItem="uTu-Un-rhN" secondAttribute="leading" id="QQL-aA-3Bn"/>
                                             <constraint firstItem="Kno-YS-fsV" firstAttribute="top" secondItem="uTu-Un-rhN" secondAttribute="top" id="RfI-f9-YAW"/>
                                             <constraint firstItem="FM5-Wf-UZU" firstAttribute="top" secondItem="Oss-6l-QQz" secondAttribute="bottom" constant="20" id="VVY-kz-vg2"/>
                                             <constraint firstItem="Oss-6l-QQz" firstAttribute="top" secondItem="gNW-DS-16y" secondAttribute="bottom" constant="30" id="a7S-xp-WrL"/>
-                                            <constraint firstItem="99h-NG-Zbd" firstAttribute="top" secondItem="4Ne-Og-Rhv" secondAttribute="bottom" constant="60" id="cr8-qb-6yg"/>
                                             <constraint firstItem="gNW-DS-16y" firstAttribute="top" secondItem="Kno-YS-fsV" secondAttribute="bottom" constant="40" id="e4q-qb-5ss"/>
                                             <constraint firstItem="Oss-6l-QQz" firstAttribute="centerX" secondItem="uTu-Un-rhN" secondAttribute="centerX" id="fqz-4i-3Zx"/>
+                                            <constraint firstAttribute="bottom" secondItem="4Ne-Og-Rhv" secondAttribute="bottom" constant="20" id="gTV-pG-aAJ"/>
                                             <constraint firstItem="FM5-Wf-UZU" firstAttribute="centerX" secondItem="uTu-Un-rhN" secondAttribute="centerX" id="iaR-TE-E88"/>
+                                            <constraint firstAttribute="height" constant="906" id="ldg-6t-x88"/>
                                             <constraint firstItem="gNW-DS-16y" firstAttribute="centerX" secondItem="uTu-Un-rhN" secondAttribute="centerX" id="vlt-Bz-z4r"/>
                                             <constraint firstItem="EZZ-XZ-BQh" firstAttribute="top" secondItem="FM5-Wf-UZU" secondAttribute="bottom" constant="30" id="x1k-2C-evI"/>
                                             <constraint firstAttribute="trailing" secondItem="Kno-YS-fsV" secondAttribute="trailing" id="xoU-vy-O6e"/>
@@ -244,12 +237,13 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="0FD-Of-jaE"/>
                                     <constraint firstItem="uTu-Un-rhN" firstAttribute="top" secondItem="27l-ya-2RT" secondAttribute="top" id="0uU-9W-kOV"/>
                                     <constraint firstAttribute="trailing" secondItem="uTu-Un-rhN" secondAttribute="trailing" id="6ey-DE-kbI"/>
                                     <constraint firstItem="uTu-Un-rhN" firstAttribute="height" secondItem="27l-ya-2RT" secondAttribute="height" id="8cU-Sm-LKE"/>
+                                    <constraint firstAttribute="height" constant="660" id="9g2-lq-xNK"/>
                                     <constraint firstItem="uTu-Un-rhN" firstAttribute="leading" secondItem="27l-ya-2RT" secondAttribute="leading" id="TPz-gb-Vx5"/>
                                     <constraint firstItem="uTu-Un-rhN" firstAttribute="width" secondItem="27l-ya-2RT" secondAttribute="width" id="Tr9-Vw-54x"/>
-                                    <constraint firstAttribute="bottom" secondItem="99h-NG-Zbd" secondAttribute="bottom" id="ZSv-hF-6KB"/>
                                     <constraint firstAttribute="bottom" secondItem="uTu-Un-rhN" secondAttribute="bottom" id="jeD-aq-si8"/>
                                 </constraints>
                             </scrollView>
