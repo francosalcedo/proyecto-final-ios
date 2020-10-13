@@ -17,6 +17,7 @@
 		2326717D252A4A6A0043AF10 /* insta_isilUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326717C252A4A6A0043AF10 /* insta_isilUITests.swift */; };
 		ADE8FB237CF4FD9B34EBAB93 /* Pods_insta_isil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BADB5ED5EC05250E115D4FF /* Pods_insta_isil.framework */; };
 		BE4E62F72534EE1800D00FBB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */; };
+		BE4E630A25350A8900D00FBB /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		4DAA8A013311454481BB02C5 /* Pods-insta-isil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insta-isil.release.xcconfig"; path = "Target Support Files/Pods-insta-isil/Pods-insta-isil.release.xcconfig"; sourceTree = "<group>"; };
 		62656FCA4E37A28A9C14211E /* Pods-insta-isil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insta-isil.debug.xcconfig"; path = "Target Support Files/Pods-insta-isil/Pods-insta-isil.debug.xcconfig"; sourceTree = "<group>"; };
 		BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				23267163252A4A6A0043AF10 /* Assets.xcassets */,
 				23267165252A4A6A0043AF10 /* LaunchScreen.storyboard */,
 				23267168252A4A6A0043AF10 /* Info.plist */,
+				BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */,
 			);
 			path = "insta-isil";
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			files = (
 				2326715F252A4A690043AF10 /* ViewController.swift in Sources */,
 				2326715B252A4A690043AF10 /* AppDelegate.swift in Sources */,
+				BE4E630A25350A8900D00FBB /* ForgetPasswordViewController.swift in Sources */,
 				2326715D252A4A690043AF10 /* SceneDelegate.swift in Sources */,
 				BE4E62F72534EE1800D00FBB /* RegisterViewController.swift in Sources */,
 			);
