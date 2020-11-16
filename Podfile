@@ -7,6 +7,10 @@ target 'insta-isil' do
 
   # Pods for insta-isil
 
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   pod 'MaterialComponents/TextFields'
   pod 'MaterialComponents/TextFields+Theming'
   pod 'MaterialComponents/Buttons'

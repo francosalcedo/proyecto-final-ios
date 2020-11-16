@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseAnalytics
 import MaterialComponents.MaterialTextFields
 import MaterialComponents.MaterialTextFields_Theming
 import MaterialComponents.MaterialColorScheme
@@ -26,6 +28,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        do {
+            try Auth.auth().signOut()
+        } catch  {
+            print("No se pudo Salir sesion de la cuenta")
+        }
         
         let containerScheme = globalContainerScheme()
         
@@ -84,5 +92,31 @@ class LoginViewController: UIViewController {
         containerScheme.colorScheme.primaryColor = .white
         return containerScheme
     }
+    
+    private func showAlert(title: String,msg: String) {
+        let alertController = UIAlertController(
+            title: title,
+            message: msg,
+            preferredStyle: .alert
+        )
+        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func didTapLoginButton(_ sender: Any) {
+        if let email = emailLoginTextField.text, let pswd = passwordLoginTextField.text {
+            Auth.auth().signIn(withEmail: email, password: pswd) { result, error in
+                if error == nil {
+                    let homeVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+                    
+                    self.view.window?.rootViewController = homeVC
+                    self.view.window?.makeKeyAndVisible()
+                } else {
+                    self.showAlert(title: "Error Login", msg: error?.localizedDescription ?? "No hay descripcion")
+                }
+            }
+        }
+    }
+    
 }
 

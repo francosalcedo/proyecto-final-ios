@@ -18,6 +18,9 @@
 		ADE8FB237CF4FD9B34EBAB93 /* Pods_insta_isil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BADB5ED5EC05250E115D4FF /* Pods_insta_isil.framework */; };
 		BE4E62F72534EE1800D00FBB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */; };
 		BE4E630A25350A8900D00FBB /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */; };
+		BE7E6ED2256217070074BB0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE7E6ED1256217070074BB0A /* GoogleService-Info.plist */; };
+		BE7E6F562562CB070074BB0A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6F552562CB070074BB0A /* HomeViewController.swift */; };
+		BE7E6F732562CF370074BB0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6F722562CF370074BB0A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		62656FCA4E37A28A9C14211E /* Pods-insta-isil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insta-isil.debug.xcconfig"; path = "Target Support Files/Pods-insta-isil/Pods-insta-isil.debug.xcconfig"; sourceTree = "<group>"; };
 		BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		BE7E6ED1256217070074BB0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE7E6F552562CB070074BB0A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BE7E6F722562CF370074BB0A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,15 +116,15 @@
 		23267159252A4A690043AF10 /* insta-isil */ = {
 			isa = PBXGroup;
 			children = (
+				BE7E6F712562CF2B0074BB0A /* Helpers */,
+				BE7E6ED0256214BF0074BB0A /* Controllers */,
 				2326715A252A4A690043AF10 /* AppDelegate.swift */,
 				2326715C252A4A690043AF10 /* SceneDelegate.swift */,
-				2326715E252A4A690043AF10 /* LoginViewController.swift */,
 				23267160252A4A690043AF10 /* Main.storyboard */,
-				BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */,
 				23267163252A4A6A0043AF10 /* Assets.xcassets */,
 				23267165252A4A6A0043AF10 /* LaunchScreen.storyboard */,
 				23267168252A4A6A0043AF10 /* Info.plist */,
-				BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */,
+				BE7E6ED1256217070074BB0A /* GoogleService-Info.plist */,
 			);
 			path = "insta-isil";
 			sourceTree = "<group>";
@@ -147,6 +153,25 @@
 				1BADB5ED5EC05250E115D4FF /* Pods_insta_isil.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE7E6ED0256214BF0074BB0A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */,
+				2326715E252A4A690043AF10 /* LoginViewController.swift */,
+				BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */,
+				BE7E6F552562CB070074BB0A /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BE7E6F712562CF2B0074BB0A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BE7E6F722562CF370074BB0A /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C2738E983D7860078DC9825B /* Pods */ = {
@@ -265,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23267167252A4A6A0043AF10 /* LaunchScreen.storyboard in Resources */,
+				BE7E6ED2256217070074BB0A /* GoogleService-Info.plist in Resources */,
 				23267164252A4A6A0043AF10 /* Assets.xcassets in Resources */,
 				23267162252A4A690043AF10 /* Main.storyboard in Resources */,
 			);
@@ -335,9 +361,11 @@
 			files = (
 				2326715F252A4A690043AF10 /* LoginViewController.swift in Sources */,
 				2326715B252A4A690043AF10 /* AppDelegate.swift in Sources */,
+				BE7E6F732562CF370074BB0A /* Constants.swift in Sources */,
 				BE4E630A25350A8900D00FBB /* ForgetPasswordViewController.swift in Sources */,
 				2326715D252A4A690043AF10 /* SceneDelegate.swift in Sources */,
 				BE4E62F72534EE1800D00FBB /* RegisterViewController.swift in Sources */,
+				BE7E6F562562CB070074BB0A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

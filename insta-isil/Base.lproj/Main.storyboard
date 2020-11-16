@@ -60,6 +60,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Ingresar"/>
+                                                <connections>
+                                                    <action selector="didTapLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Z0-yr-RCu"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXE-Qp-RyT" customClass="MDCButton">
                                                 <rect key="frame" x="50" y="476" width="314" height="60"/>
@@ -209,6 +212,7 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Enviar Correo"/>
                                                 <connections>
+                                                    <action selector="didTapSubmitButton:" destination="nv7-qc-8Ck" eventType="touchUpInside" id="DMP-tH-49N"/>
                                                     <action selector="didTapSubmitButton:" destination="Qzx-Em-Sch" eventType="touchUpInside" id="uEW-iX-pb0"/>
                                                 </connections>
                                             </button>
@@ -352,7 +356,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="s1C-AE-v6k"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="one-time-code"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPo-aq-t3Q" customClass="MDCButton">
                                                 <rect key="frame" x="50" y="522.5" width="314" height="60"/>
@@ -361,6 +365,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Registrarse"/>
+                                                <connections>
+                                                    <action selector="didTapSubmitButton:" destination="ozb-qf-gMZ" eventType="touchUpInside" id="Kfd-Nt-3fw"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6V-m6-tTS" customClass="MDCButton">
                                                 <rect key="frame" x="50" y="592.5" width="314" height="60"/>
@@ -438,6 +445,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6S-I4-6C2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="963.76811594202911" y="-273.21428571428572"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="pNW-6a-YXj">
+            <objects>
+                <viewController storyboardIdentifier="HomeVC" id="qta-hC-Hc5" customClass="HomeViewController" customModule="insta_isil" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iJW-JA-YZe"/>
+                        <viewControllerLayoutGuide type="bottom" id="gI3-EA-kzK"/>
+                    </layoutGuides>
+                    <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="vpi-PH-BqH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2AI-mk-br5">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdM-kF-hhD">
+                                        <rect key="frame" x="151" y="433.5" width="112" height="29"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ZdM-kF-hhD" firstAttribute="centerX" secondItem="2AI-mk-br5" secondAttribute="centerX" id="08e-I0-IrG"/>
+                                    <constraint firstItem="ZdM-kF-hhD" firstAttribute="centerY" secondItem="2AI-mk-br5" secondAttribute="centerY" id="iRr-lD-K1g"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eHo-9F-ZUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1862" y="139"/>
         </scene>
     </scenes>
     <resources>
