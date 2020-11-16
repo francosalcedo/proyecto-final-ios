@@ -21,6 +21,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: MDCTextField!
     @IBOutlet weak var passwordTextField: MDCTextField!
     @IBOutlet weak var submitButton: MDCButton!
+    @IBOutlet weak var returnButton: MDCButton!
     
     var nameTextFieldController: MDCTextInputControllerOutlined?
     var lastnameTextFieldController: MDCTextInputControllerOutlined?
@@ -56,6 +57,9 @@ class RegisterViewController: UIViewController {
         
         submitButton.setShadowColor(.white, for: .normal)
         submitButton.applyContainedTheme(withScheme: containerScheme)
+        
+        returnButton.setShadowColor(.white, for: .normal)
+        returnButton.applyContainedTheme(withScheme: redColorScheme())
 
     }
     
@@ -73,5 +77,23 @@ class RegisterViewController: UIViewController {
         containerScheme.colorScheme.primaryColor = .white
         return containerScheme
     }
+    
+    func redColorScheme() -> MDCContainerScheming {
+        let containerScheme = MDCContainerScheme()
+        containerScheme.colorScheme.primaryColor = UIColor(red: CGFloat(0xFF) / 255.0,
+                                                           green: CGFloat(0x44) / 255.0,
+                                                           blue: CGFloat(0x44) / 255.0,
+                                                           alpha: 1)
+        return containerScheme
+    }
+    @IBAction func didTapSubmitButton(_ sender: Any) {
+        print("me pulso")
+    }
+    @IBAction func didTapReturnButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 

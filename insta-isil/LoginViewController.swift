@@ -14,7 +14,7 @@ import MaterialComponents.MaterialContainerScheme
 import MaterialComponents.MaterialButtons
 import MaterialComponents.MaterialButtons_Theming
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailLoginTextField: MDCTextField!
     @IBOutlet weak var passwordLoginTextField: MDCTextField!

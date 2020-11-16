@@ -18,6 +18,8 @@ class ForgetPasswordViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: MDCTextField!
     @IBOutlet weak var submitButton: MDCButton!
+    @IBOutlet weak var returnButton: MDCButton!
+    
     
     var emailTextFieldController: MDCTextInputControllerOutlined?
     
@@ -35,7 +37,9 @@ class ForgetPasswordViewController: UIViewController {
         
         submitButton.setShadowColor(.white, for: .normal)
         submitButton.applyContainedTheme(withScheme: containerScheme)
-
+        
+        returnButton.setShadowColor(.white, for: .normal)
+        returnButton.applyContainedTheme(withScheme: redColorScheme())
     }
     
     func globalContainerScheme() -> MDCContainerScheming {
@@ -51,6 +55,20 @@ class ForgetPasswordViewController: UIViewController {
         let containerScheme = MDCContainerScheme()
         containerScheme.colorScheme.primaryColor = .white
         return containerScheme
+    }
+    
+    func redColorScheme() -> MDCContainerScheming {
+        let containerScheme = MDCContainerScheme()
+        containerScheme.colorScheme.primaryColor = UIColor(red: CGFloat(0xFF) / 255.0,
+                                                           green: CGFloat(0x44) / 255.0,
+                                                           blue: CGFloat(0x44) / 255.0,
+                                                           alpha: 1)
+        return containerScheme
+    }
+    @IBAction func didTapReturnButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
