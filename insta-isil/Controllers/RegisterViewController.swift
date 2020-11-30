@@ -132,7 +132,7 @@ class RegisterViewController: UIViewController {
                 if error == nil {
                     let db = Firestore.firestore()
                     
-                    db.collection("users").addDocument(data: ["firstname": name!, "lastname": lastname!, "uid": success!.user.uid]) { error in
+                    db.collection("users").document(email ?? "").setData(["firstname": name!, "lastname": lastname!, "uid": success!.user.uid]) { error in
                         if error != nil {
                             self.showAlert(title: "Error Firebase", msg: "No se pudo ingresar datos al storage")
                         }

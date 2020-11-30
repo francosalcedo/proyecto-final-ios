@@ -18,9 +18,14 @@
 		ADE8FB237CF4FD9B34EBAB93 /* Pods_insta_isil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BADB5ED5EC05250E115D4FF /* Pods_insta_isil.framework */; };
 		BE4E62F72534EE1800D00FBB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */; };
 		BE4E630A25350A8900D00FBB /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */; };
+		BE5A5FD62573266400AF4CE6 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A5FD52573266400AF4CE6 /* NavViewController.swift */; };
+		BE5A5FE4257412CE00AF4CE6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A5FE3257412CE00AF4CE6 /* ProfileViewController.swift */; };
 		BE7E6ED2256217070074BB0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE7E6ED1256217070074BB0A /* GoogleService-Info.plist */; };
 		BE7E6F562562CB070074BB0A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6F552562CB070074BB0A /* HomeViewController.swift */; };
 		BE7E6F732562CF370074BB0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6F722562CF370074BB0A /* Constants.swift */; };
+		BEAD825D25743DDD008F211A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD825C25743DDD008F211A /* EditProfileViewController.swift */; };
+		BEAD826B2575475F008F211A /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD826A2575475F008F211A /* PostView.swift */; };
+		BEAD8271257548EC008F211A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD8270257548EC008F211A /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +65,14 @@
 		62656FCA4E37A28A9C14211E /* Pods-insta-isil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insta-isil.debug.xcconfig"; path = "Target Support Files/Pods-insta-isil/Pods-insta-isil.debug.xcconfig"; sourceTree = "<group>"; };
 		BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		BE5A5FD52573266400AF4CE6 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
+		BE5A5FE3257412CE00AF4CE6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BE7E6ED1256217070074BB0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE7E6F552562CB070074BB0A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BE7E6F722562CF370074BB0A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BEAD825C25743DDD008F211A /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		BEAD826A2575475F008F211A /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		BEAD8270257548EC008F211A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +126,8 @@
 		23267159252A4A690043AF10 /* insta-isil */ = {
 			isa = PBXGroup;
 			children = (
+				BEAD826F257548DD008F211A /* Models */,
+				BEAD826925754746008F211A /* Views */,
 				BE7E6F712562CF2B0074BB0A /* Helpers */,
 				BE7E6ED0256214BF0074BB0A /* Controllers */,
 				2326715A252A4A690043AF10 /* AppDelegate.swift */,
@@ -162,6 +174,9 @@
 				2326715E252A4A690043AF10 /* LoginViewController.swift */,
 				BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */,
 				BE7E6F552562CB070074BB0A /* HomeViewController.swift */,
+				BE5A5FD52573266400AF4CE6 /* NavViewController.swift */,
+				BE5A5FE3257412CE00AF4CE6 /* ProfileViewController.swift */,
+				BEAD825C25743DDD008F211A /* EditProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,6 +187,22 @@
 				BE7E6F722562CF370074BB0A /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BEAD826925754746008F211A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BEAD826A2575475F008F211A /* PostView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BEAD826F257548DD008F211A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BEAD8270257548EC008F211A /* Post.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C2738E983D7860078DC9825B /* Pods */ = {
@@ -360,11 +391,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2326715F252A4A690043AF10 /* LoginViewController.swift in Sources */,
+				BEAD826B2575475F008F211A /* PostView.swift in Sources */,
 				2326715B252A4A690043AF10 /* AppDelegate.swift in Sources */,
+				BEAD8271257548EC008F211A /* Post.swift in Sources */,
+				BE5A5FE4257412CE00AF4CE6 /* ProfileViewController.swift in Sources */,
 				BE7E6F732562CF370074BB0A /* Constants.swift in Sources */,
 				BE4E630A25350A8900D00FBB /* ForgetPasswordViewController.swift in Sources */,
 				2326715D252A4A690043AF10 /* SceneDelegate.swift in Sources */,
 				BE4E62F72534EE1800D00FBB /* RegisterViewController.swift in Sources */,
+				BE5A5FD62573266400AF4CE6 /* NavViewController.swift in Sources */,
+				BEAD825D25743DDD008F211A /* EditProfileViewController.swift in Sources */,
 				BE7E6F562562CB070074BB0A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
