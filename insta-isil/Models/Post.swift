@@ -9,8 +9,13 @@
 import Foundation
 
 class Post {
-    var name: String
-    init(name: String) {
-        self.name = name
+    var id: String?
+    var uid: String?
+    var caption: String?
+    
+    init(id: String, uid: String, caption: String) {
+        self.id = id
+        self.uid = uid
+        self.caption = caption
     }
 }

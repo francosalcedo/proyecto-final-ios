@@ -8,11 +8,12 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 import MaterialComponents
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
-    @IBOutlet weak var EditBtn: UIButton!
+    @IBOutlet weak var changePhotoBtn: UIButton!
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var nameTextField: MDCTextField!
     @IBOutlet weak var lastnameTextField: MDCTextField!
@@ -27,6 +28,8 @@ class EditProfileViewController: UIViewController {
     var carreraTextFieldController: MDCTextInputControllerOutlined?
     var sedeTextFieldController: MDCTextInputControllerOutlined?
     var birthdayTextFieldController: MDCTextInputControllerOutlined?
+    
+    private let storage = Storage.storage().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,7 @@ class EditProfileViewController: UIViewController {
         let userRef = db.collection("users").document(user_email ?? "")
         
         self.photoImage.layer.cornerRadius = 90
+        self.photoImage.contentMode = .scaleAspectFill
         
         nameTextField.placeholder = "Nombre"
         self.nameTextFieldController = MDCTextInputControllerOutlined(textInput: nameTextField)
@@ -82,6 +86,22 @@ class EditProfileViewController: UIViewController {
                 let carrera = "\(data["carrera"] ?? "")"
                 let sede = "\(data["sede"] ?? "")"
                 let birthday = "\(data["birthday"] ?? "")"
+                
+                if let imageUrlString: String = data["image-url"] as? String {
+                    let url:URL? = URL(string: imageUrlString)
+                    do {
+                        let data = try Data(contentsOf: url!)
+                        self.photoImage.image = UIImage(data: data)
+                        self.photoImage.sizeToFit()
+                    } catch {
+                        print("No encontre Imagen en la url papuh")
+                        self.photoImage.image = UIImage(named: "user-photo")
+                    }
+                } else {
+                    print("No se consiguio imagen papuh")
+                    self.photoImage.image = UIImage(named: "user-photo")
+                }
+                
                 self.nameTextField.text = name
                 self.lastnameTextField.text = lastname
                 self.carreraTextField.text = carrera
@@ -117,7 +137,7 @@ class EditProfileViewController: UIViewController {
             let db = Firestore.firestore()
             let user_email = getUsernameEmail()
             
-            db.collection("users").document(user_email ?? "").setData(["firstname": name!, "lastname": lastname!, "carrera": carrera!, "sede": sede!, "birthday": birthday!]) { error in
+            db.collection("users").document(user_email ?? "").updateData(["firstname": name!, "lastname": lastname!, "carrera": carrera!, "sede": sede!, "birthday": birthday!]) { error in
                 if error != nil {
                     self.showAlert(title: "Error Firebase", msg: "No se pudo ingresar datos al storage")
                 }
@@ -180,4 +200,64 @@ class EditProfileViewController: UIViewController {
 
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func didTapPickerImage() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.allowsEditing = true
+        present(picker, animated: true)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        guard let imageData = image.pngData() else {
+            return
+        }
+
+        let imgName = "\(UUID().uuidString).png"
+        
+        let ref = storage.child("user-photos").child(imgName)
+        
+        ref.putData(imageData, metadata: nil) { _, err in
+            guard err == nil else {
+                print("Failed Uploaded Image")
+                return
+            }
+            ref.downloadURL() { url, err in
+                if let _ = err {
+                    print("Failed Downloade Image")
+                    return
+                }
+                guard let url = url else {
+                    print("Failed get Image downloaded")
+                    return
+                }
+                
+                let urlString = url.absoluteString
+                let urlUrl = url.absoluteURL
+                
+                let user = Auth.auth().currentUser
+                let db = Firestore.firestore()
+                let user_email = user?.email
+                db.collection("users").document(user_email ?? "").updateData(["image-url": urlString])
+                
+                do {
+                    let data = try Data(contentsOf: urlUrl)
+                    self.photoImage.image = UIImage(data: data)
+                } catch {
+                    self.photoImage.image = UIImage(named: "user-photo")
+                }
+                self.photoImage.contentMode = .scaleAspectFill
+                self.photoImage.layer.cornerRadius = 90
+            }
+        }
+        
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+
 }

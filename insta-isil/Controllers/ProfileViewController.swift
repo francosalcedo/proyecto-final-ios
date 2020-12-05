@@ -34,6 +34,22 @@ class ProfileViewController: UIViewController {
                 let carrera = "\(data["carrera"] ?? "-")"
                 let sede = "\(data["sede"] ?? "-")"
                 let birthday = "\(data["birthday"] ?? "-")"
+                
+                if let imageUrlString: String = data["image-url"] as? String {
+                    let url:URL? = URL(string: imageUrlString)
+                    do {
+                        let data = try Data(contentsOf: url!)
+                        self.photoImage.image = UIImage(data: data)
+                        self.photoImage.sizeToFit()
+                    } catch {
+                        print("No encontre Imagen en la url papuh")
+                        self.photoImage.image = UIImage(named: "user-photo")
+                    }
+                } else {
+                    print("No se consiguio imagen papuh")
+                    self.photoImage.image = UIImage(named: "user-photo")
+                }
+                
                 self.nameTxtLbl.text = name
                 self.carreraTxtLbl.text = carrera
                 self.sedeTxtLabel.text = sede
@@ -45,6 +61,7 @@ class ProfileViewController: UIViewController {
     private func setDefaultValues() {
         self.photoImage.image = UIImage(named: "user-photo")
         self.photoImage.layer.cornerRadius = 90
+        self.photoImage.contentMode = .scaleAspectFill
         
         self.nameTxtLbl.text = "-"
         self.carreraTxtLbl.text = "-"

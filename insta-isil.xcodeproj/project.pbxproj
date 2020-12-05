@@ -16,16 +16,25 @@
 		23267172252A4A6A0043AF10 /* insta_isilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267171252A4A6A0043AF10 /* insta_isilTests.swift */; };
 		2326717D252A4A6A0043AF10 /* insta_isilUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326717C252A4A6A0043AF10 /* insta_isilUITests.swift */; };
 		ADE8FB237CF4FD9B34EBAB93 /* Pods_insta_isil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BADB5ED5EC05250E115D4FF /* Pods_insta_isil.framework */; };
+		BE26122B25792DF200F54D11 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26122A25792DF200F54D11 /* CreatePostViewController.swift */; };
+		BE2612302579D6A800F54D11 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26122F2579D6A800F54D11 /* PostManager.swift */; };
 		BE4E62F72534EE1800D00FBB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */; };
 		BE4E630A25350A8900D00FBB /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */; };
+		BE4E6E78257A801D005CD87C /* PostLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E6E77257A801D005CD87C /* PostLike.swift */; };
+		BE4E6E7D257A8676005CD87C /* PostLikeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E6E7C257A8676005CD87C /* PostLikeManager.swift */; };
 		BE5A5FD62573266400AF4CE6 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A5FD52573266400AF4CE6 /* NavViewController.swift */; };
 		BE5A5FE4257412CE00AF4CE6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A5FE3257412CE00AF4CE6 /* ProfileViewController.swift */; };
 		BE7E6ED2256217070074BB0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE7E6ED1256217070074BB0A /* GoogleService-Info.plist */; };
 		BE7E6F562562CB070074BB0A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6F552562CB070074BB0A /* HomeViewController.swift */; };
 		BE7E6F732562CF370074BB0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E6F722562CF370074BB0A /* Constants.swift */; };
+		BE86B66B257B350200764307 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86B66A257B350200764307 /* CommentsViewController.swift */; };
+		BE86B670257B364100764307 /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86B66F257B364100764307 /* PostComment.swift */; };
+		BE86B675257B378400764307 /* CommentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86B674257B378400764307 /* CommentsCollectionViewCell.swift */; };
+		BE908E2225782ABB00D71411 /* PostsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE908E2125782ABB00D71411 /* PostsCollectionViewCell.swift */; };
 		BEAD825D25743DDD008F211A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD825C25743DDD008F211A /* EditProfileViewController.swift */; };
 		BEAD826B2575475F008F211A /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD826A2575475F008F211A /* PostView.swift */; };
 		BEAD8271257548EC008F211A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD8270257548EC008F211A /* Post.swift */; };
+		BEEE7E2B257B44BF0057F50B /* PostCommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE7E2A257B44BF0057F50B /* PostCommentManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,16 +72,25 @@
 		2326717E252A4A6A0043AF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DAA8A013311454481BB02C5 /* Pods-insta-isil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insta-isil.release.xcconfig"; path = "Target Support Files/Pods-insta-isil/Pods-insta-isil.release.xcconfig"; sourceTree = "<group>"; };
 		62656FCA4E37A28A9C14211E /* Pods-insta-isil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insta-isil.debug.xcconfig"; path = "Target Support Files/Pods-insta-isil/Pods-insta-isil.debug.xcconfig"; sourceTree = "<group>"; };
+		BE26122A25792DF200F54D11 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		BE26122F2579D6A800F54D11 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
 		BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		BE4E6E77257A801D005CD87C /* PostLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLike.swift; sourceTree = "<group>"; };
+		BE4E6E7C257A8676005CD87C /* PostLikeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLikeManager.swift; sourceTree = "<group>"; };
 		BE5A5FD52573266400AF4CE6 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		BE5A5FE3257412CE00AF4CE6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BE7E6ED1256217070074BB0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE7E6F552562CB070074BB0A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BE7E6F722562CF370074BB0A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BE86B66A257B350200764307 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		BE86B66F257B364100764307 /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
+		BE86B674257B378400764307 /* CommentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE908E2125782ABB00D71411 /* PostsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCollectionViewCell.swift; sourceTree = "<group>"; };
 		BEAD825C25743DDD008F211A /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BEAD826A2575475F008F211A /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		BEAD8270257548EC008F211A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		BEEE7E2A257B44BF0057F50B /* PostCommentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +177,25 @@
 			path = "insta-isilUITests";
 			sourceTree = "<group>";
 		};
+		BE2612342579D6DD00F54D11 /* Manangers */ = {
+			isa = PBXGroup;
+			children = (
+				BE26122F2579D6A800F54D11 /* PostManager.swift */,
+				BE4E6E7C257A8676005CD87C /* PostLikeManager.swift */,
+				BEEE7E2A257B44BF0057F50B /* PostCommentManager.swift */,
+			);
+			path = Manangers;
+			sourceTree = "<group>";
+		};
+		BE4E6E81257AE1EC005CD87C /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				BE908E2125782ABB00D71411 /* PostsCollectionViewCell.swift */,
+				BE86B674257B378400764307 /* CommentsCollectionViewCell.swift */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
 		BE4F7FC04D11428F68410751 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +214,8 @@
 				BE5A5FD52573266400AF4CE6 /* NavViewController.swift */,
 				BE5A5FE3257412CE00AF4CE6 /* ProfileViewController.swift */,
 				BEAD825C25743DDD008F211A /* EditProfileViewController.swift */,
+				BE26122A25792DF200F54D11 /* CreatePostViewController.swift */,
+				BE86B66A257B350200764307 /* CommentsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -184,6 +223,7 @@
 		BE7E6F712562CF2B0074BB0A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BE2612342579D6DD00F54D11 /* Manangers */,
 				BE7E6F722562CF370074BB0A /* Constants.swift */,
 			);
 			path = Helpers;
@@ -192,6 +232,7 @@
 		BEAD826925754746008F211A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BE4E6E81257AE1EC005CD87C /* Collections */,
 				BEAD826A2575475F008F211A /* PostView.swift */,
 			);
 			path = Views;
@@ -201,6 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				BEAD8270257548EC008F211A /* Post.swift */,
+				BE4E6E77257A801D005CD87C /* PostLike.swift */,
+				BE86B66F257B364100764307 /* PostComment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -390,15 +433,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE2612302579D6A800F54D11 /* PostManager.swift in Sources */,
+				BE86B670257B364100764307 /* PostComment.swift in Sources */,
 				2326715F252A4A690043AF10 /* LoginViewController.swift in Sources */,
 				BEAD826B2575475F008F211A /* PostView.swift in Sources */,
 				2326715B252A4A690043AF10 /* AppDelegate.swift in Sources */,
+				BE4E6E78257A801D005CD87C /* PostLike.swift in Sources */,
 				BEAD8271257548EC008F211A /* Post.swift in Sources */,
+				BE4E6E7D257A8676005CD87C /* PostLikeManager.swift in Sources */,
 				BE5A5FE4257412CE00AF4CE6 /* ProfileViewController.swift in Sources */,
+				BE86B66B257B350200764307 /* CommentsViewController.swift in Sources */,
+				BE908E2225782ABB00D71411 /* PostsCollectionViewCell.swift in Sources */,
 				BE7E6F732562CF370074BB0A /* Constants.swift in Sources */,
 				BE4E630A25350A8900D00FBB /* ForgetPasswordViewController.swift in Sources */,
+				BE26122B25792DF200F54D11 /* CreatePostViewController.swift in Sources */,
 				2326715D252A4A690043AF10 /* SceneDelegate.swift in Sources */,
 				BE4E62F72534EE1800D00FBB /* RegisterViewController.swift in Sources */,
+				BEEE7E2B257B44BF0057F50B /* PostCommentManager.swift in Sources */,
+				BE86B675257B378400764307 /* CommentsCollectionViewCell.swift in Sources */,
 				BE5A5FD62573266400AF4CE6 /* NavViewController.swift in Sources */,
 				BEAD825D25743DDD008F211A /* EditProfileViewController.swift in Sources */,
 				BE7E6F562562CB070074BB0A /* HomeViewController.swift in Sources */,
