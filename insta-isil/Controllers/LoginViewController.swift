@@ -29,12 +29,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        do {
-            try Auth.auth().signOut()
-        } catch  {
-            print("No se pudo Salir sesion de la cuenta")
-        }
-        
         let containerScheme = globalContainerScheme()
         
         //Login View

@@ -11,6 +11,7 @@ target 'insta-isil' do
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'MaterialComponents/TextFields'
   pod 'MaterialComponents/TextFields+Theming'
   pod 'MaterialComponents/Buttons'
