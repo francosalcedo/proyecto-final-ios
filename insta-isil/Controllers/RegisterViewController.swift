@@ -129,17 +129,19 @@ class RegisterViewController: UIViewController {
         
         if !errorValidate {
             Auth.auth().createUser(withEmail: email!, password: password!) { success, error in
+                print("Entramos")
                 if error == nil {
+                    print("Entramos")
                     let db = Firestore.firestore()
                     
-                    db.collection("users").document(email ?? "").setData(["firstname": name!, "lastname": lastname!, "uid": success!.user.uid]) { error in
+                    db.collection("users").document(success!.user.uid).setData(["firstname": name!, "lastname": lastname!]) { error in
                         if error != nil {
                             self.showAlert(title: "Error Firebase", msg: "No se pudo ingresar datos al storage")
                         }
                     }
                     self.transitionToHomeVC()
                 } else {
-                    self.showAlert(title: "Error Register", msg: msg)
+                    self.showAlert(title: "Error Register", msg: "El usuario ya encuentra registrado con este correo")
                 }
             }
         }

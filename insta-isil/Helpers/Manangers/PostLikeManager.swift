@@ -11,8 +11,6 @@ import Firebase
 
 class PostLikeManager {
     
-    
-    
     static func setPostLikeToDocument(postLike: PostLike) {
         let data_postLike = [
             "\(postLike.userId)" : postLike.isLiked
@@ -43,7 +41,11 @@ class PostLikeManager {
                 let data = document?.data()
                 guard let isLiked: Bool = data?[getCurrentUserUId()] as? Bool else {
                     let post_like = PostLike(postId: postId, userId: getCurrentUserUId(), isLiked: true)
-                    createPostLikeToDocument(postLike: post_like)
+                    if let document = document, document.exists {
+                        setPostLikeToDocument(postLike: post_like)
+                    } else {
+                        createPostLikeToDocument(postLike: post_like)
+                    }
                     return
                 }
                 completation(isLiked)

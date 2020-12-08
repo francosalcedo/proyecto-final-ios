@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseStorage
 import MaterialComponents
+import FirebaseStorage
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
@@ -29,22 +28,19 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var sedeTextFieldController: MDCTextInputControllerOutlined?
     var birthdayTextFieldController: MDCTextInputControllerOutlined?
     
+    var user: User!
+    
     private let storage = Storage.storage().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.user = User(uid: "", firstname: "", lastname: "", carrera: "", sede: "", birthday: "", imageUrl: "")
+        
         configureComponents()
-        
-        
     }
     
     private func configureComponents() {
-        let user = Auth.auth().currentUser
-        let user_email = user?.email
-        let db = Firestore.firestore()
-        let userRef = db.collection("users").document(user_email ?? "")
-        
         self.photoImage.layer.cornerRadius = 90
         self.photoImage.contentMode = .scaleAspectFill
         
@@ -79,35 +75,36 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         returnBtn.setShadowColor(.white, for: .normal)
         returnBtn.applyContainedTheme(withScheme: redColorScheme())
         
-        userRef.getDocument { snapshot, error in
-            if let data = snapshot?.data() {
-                let name =  "\(data["firstname"] ?? "")"
-                let lastname = "\(data["lastname"] ?? "")"
-                let carrera = "\(data["carrera"] ?? "")"
-                let sede = "\(data["sede"] ?? "")"
-                let birthday = "\(data["birthday"] ?? "")"
-                
-                if let imageUrlString: String = data["image-url"] as? String {
-                    let url:URL? = URL(string: imageUrlString)
+        UserManager.getDataFromCurrentUser { user in
+            let name =  "\(user?.firstname ?? "")"
+            let lastname = "\(user?.lastname ?? "")"
+            let carrera = "\(user?.carrera ?? "")"
+            let sede = "\(user?.sede ?? "")"
+            let birthday = "\(user?.birthday ?? "")"
+            
+            if let imageUrlString: String = user?.imageUrl {
+                let url:URL? = URL(string: imageUrlString)
+                if url != nil {
                     do {
                         let data = try Data(contentsOf: url!)
                         self.photoImage.image = UIImage(data: data)
                         self.photoImage.sizeToFit()
                     } catch {
-                        print("No encontre Imagen en la url papuh")
                         self.photoImage.image = UIImage(named: "user-photo")
                     }
                 } else {
-                    print("No se consiguio imagen papuh")
                     self.photoImage.image = UIImage(named: "user-photo")
                 }
                 
-                self.nameTextField.text = name
-                self.lastnameTextField.text = lastname
-                self.carreraTextField.text = carrera
-                self.sedeTextField.text = sede
-                self.birthdayTextField.text = birthday
+            } else {
+                self.photoImage.image = UIImage(named: "user-photo")
             }
+            
+            self.nameTextField.text = name
+            self.lastnameTextField.text = lastname
+            self.carreraTextField.text = carrera
+            self.sedeTextField.text = sede
+            self.birthdayTextField.text = birthday
         }
     }
     
@@ -115,6 +112,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         var msg: String = ""
         var errorValidate = false
         
+        let uid = UserManager.getCurrentUser()?.uid
         let name = nameTextField.text
         let lastname = lastnameTextField.text
         let carrera = carreraTextField.text
@@ -134,14 +132,21 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
         
         if !errorValidate {
-            let db = Firestore.firestore()
-            let user_email = getUsernameEmail()
+            self.user.uid = "\(uid!)"
+            self.user.firstname = "\(name!)"
+            self.user.lastname = "\(lastname!)"
+            self.user.carrera = "\(carrera!)"
+            self.user.sede = "\(sede!)"
+            self.user.birthday = "\(birthday!)"
             
-            db.collection("users").document(user_email ?? "").updateData(["firstname": name!, "lastname": lastname!, "carrera": carrera!, "sede": sede!, "birthday": birthday!]) { error in
-                if error != nil {
-                    self.showAlert(title: "Error Firebase", msg: "No se pudo ingresar datos al storage")
+            if self.user.imageUrl == "" {
+                UserManager.getDataFromUserByUId(uid: user.uid) { user_data in
+                    self.user.imageUrl = user_data?.imageUrl
                 }
             }
+            
+            UserManager.setDataToUserByUid(user);
+            
             navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
             
@@ -179,22 +184,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         return containerScheme
     }
     
-    private func showAlert(title: String,msg: String) {
-        let alertController = UIAlertController(
-            title: title,
-            message: msg,
-            preferredStyle: .alert
-        )
-        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    private func getUsernameEmail () -> String? {
-        let user = Auth.auth().currentUser
-        let user_email = user?.email
-        
-        return user_email
-    }
     @IBAction func didTapReturn(_ sender: Any) {
         navigationController?.popViewController(animated: true)
 
@@ -238,10 +227,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 let urlString = url.absoluteString
                 let urlUrl = url.absoluteURL
                 
-                let user = Auth.auth().currentUser
-                let db = Firestore.firestore()
-                let user_email = user?.email
-                db.collection("users").document(user_email ?? "").updateData(["image-url": urlString])
+                self.user.imageUrl = urlString
                 
                 do {
                     let data = try Data(contentsOf: urlUrl)

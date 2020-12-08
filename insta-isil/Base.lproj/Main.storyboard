@@ -602,7 +602,23 @@
                                                             <state key="normal" image="bubble.left" catalog="system"/>
                                                             <connections>
                                                                 <action selector="didTapOnCommentButton:" destination="d8E-C2-J60" eventType="touchUpInside" id="Xws-RJ-4wW"/>
-                                                                <segue destination="k4l-0D-Gv3" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="PxK-fP-wrG"/>
+                                                                <segue destination="k4l-0D-Gv3" kind="presentation" identifier="toComment" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="PxK-fP-wrG"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aex-iG-ltF">
+                                                            <rect key="frame" x="314" y="20" width="80" height="40"/>
+                                                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="MZF-xs-VJQ"/>
+                                                                <constraint firstAttribute="height" constant="40" id="XPa-dX-fuh"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                            <state key="normal" title="Ver Perfil">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="didTapOnProfileButton:" destination="d8E-C2-J60" eventType="touchUpInside" id="dn4-KU-SYG"/>
+                                                                <segue destination="or6-oi-1Jt" kind="presentation" identifier="toProfile" modalPresentationStyle="fullScreen" id="xAy-Hz-kHy"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -612,10 +628,12 @@
                                                         <constraint firstItem="mfM-bl-c7O" firstAttribute="top" secondItem="7Pc-BV-ebb" secondAttribute="bottom" constant="10" id="B09-Po-9L9"/>
                                                         <constraint firstAttribute="trailing" secondItem="7Pc-BV-ebb" secondAttribute="trailing" constant="20" id="Hfu-mQ-8jL"/>
                                                         <constraint firstItem="Vgh-g3-4bw" firstAttribute="centerY" secondItem="Gpt-DI-NpL" secondAttribute="centerY" id="RAk-TP-AxN"/>
+                                                        <constraint firstItem="aex-iG-ltF" firstAttribute="centerY" secondItem="Gpt-DI-NpL" secondAttribute="centerY" id="ZO6-wy-4fI"/>
                                                         <constraint firstItem="mfM-bl-c7O" firstAttribute="leading" secondItem="yjz-Oi-pOa" secondAttribute="leading" constant="20" id="bwd-3e-kXR"/>
                                                         <constraint firstItem="7Pc-BV-ebb" firstAttribute="leading" secondItem="yjz-Oi-pOa" secondAttribute="leading" constant="20" id="e0i-zW-tl0"/>
                                                         <constraint firstItem="4X5-un-lQv" firstAttribute="top" secondItem="7Pc-BV-ebb" secondAttribute="bottom" constant="10" id="fgI-pS-5Lk"/>
                                                         <constraint firstItem="Vgh-g3-4bw" firstAttribute="leading" secondItem="Gpt-DI-NpL" secondAttribute="trailing" constant="20" id="i8J-RU-Ako"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aex-iG-ltF" secondAttribute="trailing" constant="20" id="kSK-Ae-69G"/>
                                                         <constraint firstItem="Gpt-DI-NpL" firstAttribute="top" secondItem="yjz-Oi-pOa" secondAttribute="top" constant="20" id="lA1-1J-kas"/>
                                                         <constraint firstItem="4X5-un-lQv" firstAttribute="leading" secondItem="mfM-bl-c7O" secondAttribute="trailing" constant="10" id="m1J-Q2-MST"/>
                                                     </constraints>
@@ -666,7 +684,7 @@
         <!--Comments View Controller-->
         <scene sceneID="AMF-kz-uXd">
             <objects>
-                <viewController storyboardIdentifier="commentVC" id="k4l-0D-Gv3" customClass="CommentsViewController" customModule="insta_isil" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentVC" id="k4l-0D-Gv3" customClass="CommentsViewController" customModule="insta_isil" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fDr-5g-3fX"/>
                         <viewControllerLayoutGuide type="bottom" id="YqJ-XM-Wvz"/>
@@ -1055,32 +1073,32 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="401"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9jp-Ql-CBN">
-                                                        <rect key="frame" x="117" y="20" width="180" height="180"/>
+                                                        <rect key="frame" x="132" y="20" width="150" height="150"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="180" id="jwd-16-4qf"/>
-                                                            <constraint firstAttribute="width" constant="180" id="lM9-wP-cWD"/>
+                                                            <constraint firstAttribute="height" constant="150" id="jwd-16-4qf"/>
+                                                            <constraint firstAttribute="width" constant="150" id="lM9-wP-cWD"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carrera " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4AS-rG-Jhn">
-                                                        <rect key="frame" x="80" y="264" width="254" height="20.5"/>
+                                                        <rect key="frame" x="80" y="234" width="254" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sede" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-dj-ONE">
-                                                        <rect key="frame" x="80" y="294.5" width="254" height="20.5"/>
+                                                        <rect key="frame" x="80" y="264.5" width="254" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha de Nacimiento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zN-jB-G39">
-                                                        <rect key="frame" x="80" y="325" width="254" height="20.5"/>
+                                                        <rect key="frame" x="80" y="295" width="254" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOMBRE APELLIDO " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4du-Ny-ezh">
-                                                        <rect key="frame" x="112" y="220" width="190.5" height="24"/>
+                                                        <rect key="frame" x="112" y="190" width="190.5" height="24"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1101,6 +1119,18 @@
                                                             <segue destination="hIY-PX-KgO" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="HKs-dm-ucJ"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGs-IC-pVl">
+                                                        <rect key="frame" x="132" y="335.5" width="150" height="40"/>
+                                                        <color key="backgroundColor" red="0.99215686274509807" green="0.49019607843137253" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="WOt-RU-Z0R"/>
+                                                            <constraint firstAttribute="width" constant="150" id="lbf-xE-I2R"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                        <state key="normal" title="Seguir">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -1114,9 +1144,11 @@
                                                     <constraint firstAttribute="trailing" secondItem="fDC-4j-KYl" secondAttribute="trailing" constant="20" id="Tb3-0e-cg1"/>
                                                     <constraint firstItem="9jp-Ql-CBN" firstAttribute="centerX" secondItem="pSN-8g-kK0" secondAttribute="centerX" id="UWd-5h-cn0"/>
                                                     <constraint firstItem="9zN-jB-G39" firstAttribute="top" secondItem="EzY-dj-ONE" secondAttribute="bottom" constant="10" id="ZDr-WL-zFv"/>
+                                                    <constraint firstItem="LGs-IC-pVl" firstAttribute="centerX" secondItem="pSN-8g-kK0" secondAttribute="centerX" id="a5E-s1-LbC"/>
                                                     <constraint firstItem="4du-Ny-ezh" firstAttribute="centerX" secondItem="pSN-8g-kK0" secondAttribute="centerX" id="d9n-xO-MtM"/>
                                                     <constraint firstItem="EzY-dj-ONE" firstAttribute="leading" secondItem="pSN-8g-kK0" secondAttribute="leading" constant="80" id="eB9-Av-9HA"/>
                                                     <constraint firstItem="4du-Ny-ezh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pSN-8g-kK0" secondAttribute="leading" id="eV3-fZ-HVo"/>
+                                                    <constraint firstItem="LGs-IC-pVl" firstAttribute="top" secondItem="9zN-jB-G39" secondAttribute="bottom" constant="20" id="hxa-Mv-MA1"/>
                                                     <constraint firstAttribute="height" constant="401" id="ly2-fn-Bpr"/>
                                                     <constraint firstItem="9zN-jB-G39" firstAttribute="leading" secondItem="pSN-8g-kK0" secondAttribute="leading" constant="80" id="ncD-z8-ANa"/>
                                                     <constraint firstAttribute="trailing" secondItem="4AS-rG-Jhn" secondAttribute="trailing" constant="80" id="su5-9d-L73"/>
@@ -1165,7 +1197,9 @@
                     <navigationItem key="navigationItem" id="pCk-at-Uf5"/>
                     <connections>
                         <outlet property="carreraTxtLbl" destination="4AS-rG-Jhn" id="ISI-bX-Ds0"/>
+                        <outlet property="editProfileButton" destination="fDC-4j-KYl" id="Bb7-hK-prE"/>
                         <outlet property="fech_nacTxtLabel" destination="9zN-jB-G39" id="IDz-4W-CHL"/>
+                        <outlet property="followButton" destination="LGs-IC-pVl" id="3U6-Fs-oeR"/>
                         <outlet property="nameTxtLbl" destination="4du-Ny-ezh" id="eCo-lh-uWU"/>
                         <outlet property="photoImage" destination="9jp-Ql-CBN" id="cNz-Bf-2oR"/>
                         <outlet property="sedeTxtLabel" destination="EzY-dj-ONE" id="AWI-3c-Jxk"/>
@@ -1330,7 +1364,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AYf-sN-nTF"/>
+        <segue reference="6QZ-bi-YUN"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="btn-pencil" width="13" height="13"/>

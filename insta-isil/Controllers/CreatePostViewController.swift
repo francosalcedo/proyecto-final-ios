@@ -54,6 +54,10 @@ class CreatePostViewController: UIViewController {
             }
             navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
+            let homeVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+            
+            self.view.window?.rootViewController = homeVC
+            self.view.window?.makeKeyAndVisible()
         } else {
             print("ERROR AL SUBIR DATOS")
         }

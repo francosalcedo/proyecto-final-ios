@@ -1,67 +1,61 @@
 
 import UIKit
-import Firebase
 import MaterialComponents.MDCFlatButton
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class HomeViewController: UIViewController {
     @IBOutlet weak var publishBtn: MDCFlatButton!
     @IBOutlet weak var photoPublishImg: UIImageView!
     @IBOutlet weak var postsCollectionView: UICollectionView!
 
     var posts_data: [Post] = []
     var postToComment: Post!
+    var userToProfile: User!
+    
+    //MARK: - Override Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if Auth.auth().currentUser != nil {
-            configureComponents()
-            PostManager.getPostsByCurrentUser { posts in
-                self.posts_data = posts
-                self.postsCollectionView.reloadData()
-            }
-        } else {
-            print("No esta online")
-            let loginVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.loginViewController) as? LoginViewController
-            
-            self.view.window?.rootViewController = loginVC
-            self.view.window?.makeKeyAndVisible()
+        configureComponents()
+        PostManager.getPostsAll{ posts in
+            self.posts_data = posts
+            self.postsCollectionView.reloadData()
         }
-        
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toComment" {
+            guard let commentsVC = segue.destination as? CommentsViewController else { return }
+            commentsVC.post = self.postToComment
+        } else if segue.identifier == "toProfile" {
+            guard let profileVC = segue.destination as? ProfileViewController else { return }
+            profileVC.userFrom = self.userToProfile
+        }
+    }
+    
+    //MARK: - Functions
+    
     func configureComponents() {
-        let user = Auth.auth().currentUser
-        let user_email = user?.email
-        let db = Firestore.firestore()
-        let userRef = db.collection("users").document(user_email ?? "")
-        
-        userRef.getDocument { snapshot, error in
-            if let _ = error {
-                self.photoPublishImg.image = UIImage(named: "user-photo")
-            } else {
-                guard let data = snapshot?.data() else {
-                    self.photoPublishImg.image = UIImage(named: "user-photo")
-                    return
-                }
-               
-                if data["image-url"] != nil {
-                    let url: URL = URL(string: data["image-url"] as! String)!
+        UserManager.getDataFromCurrentUser { user in
+            if user != nil {
+                let urlImage: String? = user?.imageUrl ?? nil
+                if urlImage != nil && urlImage != "" {
+                    let url: URL? = URL(string: urlImage!)
                     do {
-                        let image_data = try Data(contentsOf: url)
+                        let image_data = try Data(contentsOf: url!)
                         self.photoPublishImg.image = UIImage(data: image_data)
                     } catch {
-                        print("Error al obtener Imagen")
                         self.photoPublishImg.image = UIImage(named: "user-photo")
                     }
                 } else {
-                    print("Es nill")
                     self.photoPublishImg.image = UIImage(named: "user-photo")
                 }
         
                 self.photoPublishImg.contentMode = .scaleAspectFill
                 self.photoPublishImg.layer.cornerRadius = 30
                 self.photoPublishImg.sizeToFit()
+                
+            } else {
+                self.photoPublishImg.image = UIImage(named: "user-photo")
             }
         }
         self.publishBtn.setShadowColor(.white, for: .normal)
@@ -76,8 +70,15 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                                                            alpha: 1)
         return containerScheme
     }
-    //Collection View
-    
+}
+
+// MARK: - UICollectionViewDataDelegate
+extension HomeViewController: UICollectionViewDelegate {
+    //
+}
+
+// MARK: - UICollectionViewDataSource
+extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts_data.count
     }
@@ -85,14 +86,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCell" , for: indexPath) as! PostsCollectionViewCell
         
-        let user = Auth.auth().currentUser
-        let user_email = user?.email
-        let db = Firestore.firestore()
-        let userRef = db.collection("users").document(user_email ?? "")
+        let post = posts_data[indexPath.row];
+        var user_post: User!
         
-        userRef.getDocument { snapshot, error in
-            if let data = snapshot?.data() {
-                let url: URL = URL(string: data["image-url"] as! String)!
+        // Get User and Setup UI
+        UserManager.getDataFromUserByUId(uid: post.uid!) { user in
+            let urlImage: String! = user!.imageUrl
+            if urlImage != nil && urlImage != "" {
+                let url: URL! = URL(string: urlImage!)
                 do {
                     let data = try Data(contentsOf: url)
                     cell.photoUserImageView.image = UIImage(data: data)
@@ -100,21 +101,25 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 } catch {
                     cell.photoUserImageView.image = UIImage(named: "user-photo")
                 }
-                cell.photoUserImageView.contentMode = .scaleAspectFill
-                cell.photoUserImageView.layer.cornerRadius = 20
-                
-                let user_name = "\(String(describing: data["firstname"] ?? "")) \(String(describing: data["lastname"] ?? ""))"
-                
-                cell.nameUserLabel.text = user_name
-                
+            } else {
+                cell.photoUserImageView.image = UIImage(named: "user-photo")
             }
             
+            cell.photoUserImageView.contentMode = .scaleAspectFill
+            cell.photoUserImageView.layer.cornerRadius = 20
+            
+            let user_name = "\(user?.firstname! ?? "") \(user?.lastname! ?? "")"
+            
+            cell.nameUserLabel.text = user_name
+            //get User
+            user_post = user
         }
+        
         cell.tapLikeButton = {
             cell.likeButton.isEnabled = false
-            let user = Auth.auth().currentUser
+            let user = UserManager.getCurrentUser()
             let uid = user?.uid
-            let post_id: String = self.posts_data[indexPath.row].id ?? ""
+            let post_id: String = post.id ?? ""
             PostLikeManager.isLikedByCurrentUser(postId: post_id) { isLiked in
                 let p = PostLike(postId: post_id, userId: uid ?? "", isLiked: !isLiked)
                 PostLikeManager.setPostLikeToDocument(postLike: p)
@@ -127,10 +132,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
         }
         cell.tapCommentButton = {
-            self.postToComment = self.posts_data[indexPath.row]
+            self.postToComment = post
+        }
+        
+        cell.tapProfileButton = {
+            self.userToProfile = user_post
         }
         cell.backgroundColor = .white
-        cell.captionTextView.text = self.posts_data[indexPath.row].caption
+        cell.captionTextView.text = post.caption
         PostLikeManager.isLikedByCurrentUser(postId: self.posts_data[indexPath.row].id ?? "") { isLiked in
             if isLiked {
                 cell.setupUILikeButtonIsLiked()
@@ -140,9 +149,5 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         return cell
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let commentsVC = segue.destination as? CommentsViewController else { return }
-        commentsVC.post = self.postToComment
-    }
 }
+

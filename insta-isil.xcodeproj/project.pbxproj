@@ -18,6 +18,7 @@
 		ADE8FB237CF4FD9B34EBAB93 /* Pods_insta_isil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BADB5ED5EC05250E115D4FF /* Pods_insta_isil.framework */; };
 		BE26122B25792DF200F54D11 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26122A25792DF200F54D11 /* CreatePostViewController.swift */; };
 		BE2612302579D6A800F54D11 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26122F2579D6A800F54D11 /* PostManager.swift */; };
+		BE3B499A257D31A900B17640 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B4999257D31A900B17640 /* User.swift */; };
 		BE4E62F72534EE1800D00FBB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */; };
 		BE4E630A25350A8900D00FBB /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */; };
 		BE4E6E78257A801D005CD87C /* PostLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E6E77257A801D005CD87C /* PostLike.swift */; };
@@ -34,6 +35,9 @@
 		BEAD825D25743DDD008F211A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD825C25743DDD008F211A /* EditProfileViewController.swift */; };
 		BEAD826B2575475F008F211A /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD826A2575475F008F211A /* PostView.swift */; };
 		BEAD8271257548EC008F211A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD8270257548EC008F211A /* Post.swift */; };
+		BEB142A0257D3AFF0078E552 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB1429F257D3AFF0078E552 /* UserManager.swift */; };
+		BEB142A5257E834F0078E552 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB142A4257E834F0078E552 /* ShowAlert.swift */; };
+		BEB142AD257F45B70078E552 /* UserFollow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB142AC257F45B70078E552 /* UserFollow.swift */; };
 		BEEE7E2B257B44BF0057F50B /* PostCommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE7E2A257B44BF0057F50B /* PostCommentManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +78,7 @@
 		62656FCA4E37A28A9C14211E /* Pods-insta-isil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insta-isil.debug.xcconfig"; path = "Target Support Files/Pods-insta-isil/Pods-insta-isil.debug.xcconfig"; sourceTree = "<group>"; };
 		BE26122A25792DF200F54D11 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		BE26122F2579D6A800F54D11 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
+		BE3B4999257D31A900B17640 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BE4E62F62534EE1800D00FBB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BE4E630925350A8900D00FBB /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		BE4E6E77257A801D005CD87C /* PostLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLike.swift; sourceTree = "<group>"; };
@@ -90,6 +95,9 @@
 		BEAD825C25743DDD008F211A /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BEAD826A2575475F008F211A /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		BEAD8270257548EC008F211A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		BEB1429F257D3AFF0078E552 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		BEB142A4257E834F0078E552 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
+		BEB142AC257F45B70078E552 /* UserFollow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollow.swift; sourceTree = "<group>"; };
 		BEEE7E2A257B44BF0057F50B /* PostCommentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +191,7 @@
 				BE26122F2579D6A800F54D11 /* PostManager.swift */,
 				BE4E6E7C257A8676005CD87C /* PostLikeManager.swift */,
 				BEEE7E2A257B44BF0057F50B /* PostCommentManager.swift */,
+				BEB1429F257D3AFF0078E552 /* UserManager.swift */,
 			);
 			path = Manangers;
 			sourceTree = "<group>";
@@ -225,6 +234,7 @@
 			children = (
 				BE2612342579D6DD00F54D11 /* Manangers */,
 				BE7E6F722562CF370074BB0A /* Constants.swift */,
+				BEB142A4257E834F0078E552 /* ShowAlert.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -244,6 +254,8 @@
 				BEAD8270257548EC008F211A /* Post.swift */,
 				BE4E6E77257A801D005CD87C /* PostLike.swift */,
 				BE86B66F257B364100764307 /* PostComment.swift */,
+				BE3B4999257D31A900B17640 /* User.swift */,
+				BEB142AC257F45B70078E552 /* UserFollow.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,9 +452,11 @@
 				2326715B252A4A690043AF10 /* AppDelegate.swift in Sources */,
 				BE4E6E78257A801D005CD87C /* PostLike.swift in Sources */,
 				BEAD8271257548EC008F211A /* Post.swift in Sources */,
+				BEB142A0257D3AFF0078E552 /* UserManager.swift in Sources */,
 				BE4E6E7D257A8676005CD87C /* PostLikeManager.swift in Sources */,
 				BE5A5FE4257412CE00AF4CE6 /* ProfileViewController.swift in Sources */,
 				BE86B66B257B350200764307 /* CommentsViewController.swift in Sources */,
+				BE3B499A257D31A900B17640 /* User.swift in Sources */,
 				BE908E2225782ABB00D71411 /* PostsCollectionViewCell.swift in Sources */,
 				BE7E6F732562CF370074BB0A /* Constants.swift in Sources */,
 				BE4E630A25350A8900D00FBB /* ForgetPasswordViewController.swift in Sources */,
@@ -450,10 +464,12 @@
 				2326715D252A4A690043AF10 /* SceneDelegate.swift in Sources */,
 				BE4E62F72534EE1800D00FBB /* RegisterViewController.swift in Sources */,
 				BEEE7E2B257B44BF0057F50B /* PostCommentManager.swift in Sources */,
+				BEB142A5257E834F0078E552 /* ShowAlert.swift in Sources */,
 				BE86B675257B378400764307 /* CommentsCollectionViewCell.swift in Sources */,
 				BE5A5FD62573266400AF4CE6 /* NavViewController.swift in Sources */,
 				BEAD825D25743DDD008F211A /* EditProfileViewController.swift in Sources */,
 				BE7E6F562562CB070074BB0A /* HomeViewController.swift in Sources */,
+				BEB142AD257F45B70078E552 /* UserFollow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,7 @@ class PostsCollectionViewCell: UICollectionViewCell {
     
     var tapLikeButton: (() -> Void)? = nil
     var tapCommentButton: (() -> Void)? = nil
+    var tapProfileButton: (() -> Void)? = nil
 
     func setupUILikeButtonIsLiked () {
         likeButton.layer.backgroundColor = CGColor(red: CGFloat(0x00) / 255.0,
@@ -46,10 +47,14 @@ class PostsCollectionViewCell: UICollectionViewCell {
         likeButton.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
     }
     
+    //MARK: - Action
     @IBAction func didTapOnLikeButton(_ sender: UIButton!) {
         tapLikeButton?()
     }
     @IBAction func didTapOnCommentButton(_ sender: UIButton!) {
         tapCommentButton?()
+    }
+    @IBAction func didTapOnProfileButton(_ sender: UIButton!) {
+        tapProfileButton?()
     }
 }

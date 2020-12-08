@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
 
@@ -17,26 +15,37 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var carreraTxtLbl: UILabel!
     @IBOutlet weak var sedeTxtLabel: UILabel!
     @IBOutlet weak var fech_nacTxtLabel: UILabel!
+    @IBOutlet weak var editProfileButton: UIButton!
+    @IBOutlet weak var followButton: UIButton!
+    
+    var userFrom: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setDefaultValues()
-        
-        let user = Auth.auth().currentUser
-        let user_email = user?.email
-        let db = Firestore.firestore()
-        let userRef = db.collection("users").document(user_email ?? "")
-        
-        userRef.getDocument { snapshot, error in
-            if let data = snapshot?.data() {
-                let name =  "\(data["firstname"] ?? "Anynomous") \(data["lastname"] ?? "Anynomous")"
-                let carrera = "\(data["carrera"] ?? "-")"
-                let sede = "\(data["sede"] ?? "-")"
-                let birthday = "\(data["birthday"] ?? "-")"
-                
-                if let imageUrlString: String = data["image-url"] as? String {
-                    let url:URL? = URL(string: imageUrlString)
+        UserManager.getDataFromUserByUId(uid: UserManager.getCurrentUser()!.uid) { user in
+            if self.userFrom == nil {
+                self.userFrom = user!
+            }
+            self.setValues()
+            self.setupUI()
+            self.uiUserIsntFollowButton()
+        }
+    }
+    
+    //MARK: - Values
+    
+    private func setValues() {
+        UserManager.getDataFromUserByUId(uid: userFrom.uid){ user in
+            let name = "\(user?.firstname ?? "") \(user?.lastname ?? "")"
+            let carrera = user?.carrera ?? ""
+            let sede = user?.sede ?? ""
+            let birthday = user?.birthday ?? ""
+            
+            if let imageUrlString: String = user?.imageUrl {
+                let url:URL? = URL(string: imageUrlString)
+                if url != nil {
                     do {
                         let data = try Data(contentsOf: url!)
                         self.photoImage.image = UIImage(data: data)
@@ -46,26 +55,58 @@ class ProfileViewController: UIViewController {
                         self.photoImage.image = UIImage(named: "user-photo")
                     }
                 } else {
-                    print("No se consiguio imagen papuh")
+                    print("No es un string")
                     self.photoImage.image = UIImage(named: "user-photo")
                 }
                 
-                self.nameTxtLbl.text = name
-                self.carreraTxtLbl.text = carrera
-                self.sedeTxtLabel.text = sede
-                self.fech_nacTxtLabel.text = birthday
+            } else {
+                print("No se consiguio imagen papuh")
+                self.photoImage.image = UIImage(named: "user-photo")
             }
+            // Set Values
+            self.nameTxtLbl.text = name
+            self.carreraTxtLbl.text = carrera
+            self.sedeTxtLabel.text = sede
+            self.fech_nacTxtLabel.text = birthday
         }
     }
-    
+
     private func setDefaultValues() {
-        self.photoImage.image = UIImage(named: "user-photo")
-        self.photoImage.layer.cornerRadius = 90
-        self.photoImage.contentMode = .scaleAspectFill
+        self.nameTxtLbl.text = ""
+        self.carreraTxtLbl.text = ""
+        self.sedeTxtLabel.text = ""
+        self.fech_nacTxtLabel.text = ""
+    }
+    
+    //MARK: - UI Setup
+    
+    private func setupUI() {
+        let colorPink: CGColor! = CGColor(red: CGFloat(0xFD) / 255.0, green: CGFloat(0x7D) / 255.0, blue: CGFloat(0xFF) / 255.0, alpha: 1)
         
-        self.nameTxtLbl.text = "-"
-        self.carreraTxtLbl.text = "-"
-        self.sedeTxtLabel.text = "-"
-        self.fech_nacTxtLabel.text = "-"
+        photoImage.image = UIImage(named: "user-photo")
+        photoImage.layer.cornerRadius = 75
+        photoImage.contentMode = .scaleAspectFill
+        
+        followButton.layer.cornerRadius = 10
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = colorPink
+        
+        if UserManager.getCurrentUser()?.uid == userFrom.uid {
+            self.followButton.isHidden = true
+        } else {
+            self.editProfileButton.isHidden = true
+        }
+    }
+   
+    private func uiUserIsFollowButton() {
+        let colorPink: CGColor! = CGColor(red: CGFloat(0xFD) / 255.0, green: CGFloat(0x7D) / 255.0, blue: CGFloat(0xFF) / 255.0, alpha: 1)
+        followButton.backgroundColor = UIColor(cgColor: colorPink)
+        followButton.setTitleColor(.white, for: .normal)
+    }
+    
+    private func uiUserIsntFollowButton() {
+        let colorPink: CGColor! = CGColor(red: CGFloat(0xFD) / 255.0, green: CGFloat(0x7D) / 255.0, blue: CGFloat(0xFF) / 255.0, alpha: 1)
+        followButton.backgroundColor = .white
+        followButton.setTitleColor(UIColor(cgColor: colorPink), for: .normal)
     }
 }

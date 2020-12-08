@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Firebase
 
-class CommentsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CommentsViewController: UIViewController {
 
     @IBOutlet weak var commentsCollectionView: UICollectionView!
     @IBOutlet weak var returnButton: UIButton!
@@ -27,59 +26,16 @@ class CommentsViewController: UIViewController, UICollectionViewDataSource, UICo
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return postComments_data.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommentsCollectionViewCell.identifier , for: indexPath) as! CommentsCollectionViewCell
-        
-        if postComments_data.count >= 0 {
-            let user = Auth.auth().currentUser
-            
-            let user_email = user?.email
-            let db = Firestore.firestore()
-            let userRef = db.collection("users").document(user_email ?? "")
-            
-            userRef.getDocument { snapshot, error in
-                if let data = snapshot?.data() {
-                    let url: URL = URL(string: data["image-url"] as! String)!
-                    do {
-                        let data = try Data(contentsOf: url)
-                        cell.userPhotoImageView.image = UIImage(data: data)
-                        cell.userPhotoImageView.sizeToFit()
-                    } catch {
-                        cell.userPhotoImageView.image = UIImage(named: "user-photo")
-                    }
-                    cell.userPhotoImageView.contentMode = .scaleAspectFill
-                    cell.userPhotoImageView.layer.cornerRadius = 30
-                    
-                    let user_name = "\(String(describing: data["firstname"] ?? "")) \(String(describing: data["lastname"] ?? ""))"
-                    let caption: String = "\(user_name) \(self.postComments_data[indexPath.row].caption)"
-                    let captionAttributed = NSMutableAttributedString(string: caption as String, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0)])
-                    let boldFontAttribute = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14.0)]
-                    
-                    captionAttributed.addAttributes(boldFontAttribute, range: NSRange(location: 0, length: user_name.count))
-                    cell.captionTextView.text = caption
-                    cell.captionTextView.attributedText = captionAttributed
-                }
-            }
-        }
-        
-        return cell
-    }
-    
-    // MARK: - Navigation
+    // MARK: - Action
  
     @IBAction func didTapSubmitButton(_ sender: Any) {
         submitButton.isEnabled = false
         let caption = captionTextView.text
         
         if caption != "" && post.id != "" {
-            let user = Auth.auth().currentUser
-            let uid = user?.uid ?? ""
+            let uid = UserManager.getCurrentUser()?.uid
             
-            let postComment = PostComment(id: UUID().uuidString, postId: self.post.id ?? "", caption: caption ?? "", uid: uid)
+            let postComment = PostComment(id: UUID().uuidString, postId: self.post.id ?? "", caption: caption ?? "", uid: uid!)
             PostCommentManager.setPostCommentToDocument(postComment: postComment)
             commentsCollectionView.reloadData()
         }
@@ -91,4 +47,53 @@ class CommentsViewController: UIViewController, UICollectionViewDataSource, UICo
 
         self.dismiss(animated: true, completion: nil)
     }
+}
+
+//MARK: - UICollectionViewDataSource
+
+extension CommentsViewController: UICollectionViewDataSource {
+    //
+}
+
+//MARK: - UICollectionViewDelegate
+
+extension CommentsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.postComments_data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommentsCollectionViewCell.identifier , for: indexPath) as! CommentsCollectionViewCell
+        
+        let post_comment = self.postComments_data[indexPath.row]
+        
+        
+        if postComments_data.count >= 0 {
+            
+            UserManager.getDataFromUserByUId(uid: post_comment.uid) { user in
+                let url: URL = URL(string: "\(user?.imageUrl! ?? "")")!
+                do {
+                    let data = try Data(contentsOf: url)
+                    cell.userPhotoImageView.image = UIImage(data: data)
+                    cell.userPhotoImageView.sizeToFit()
+                } catch {
+                    cell.userPhotoImageView.image = UIImage(named: "user-photo")
+                }
+                cell.userPhotoImageView.contentMode = .scaleAspectFill
+                cell.userPhotoImageView.layer.cornerRadius = 3
+                
+                let user_name = "\(user?.firstname ?? "") \(user?.lastname ?? "")"
+                let caption: String = "\(user_name) \(post_comment.caption)"
+                let captionAttributed = NSMutableAttributedString(string: caption as String, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0)])
+                let boldFontAttribute = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14.0)]
+                
+                captionAttributed.addAttributes(boldFontAttribute, range: NSRange(location: 0, length: user_name.count))
+                cell.captionTextView.text = caption
+                cell.captionTextView.attributedText = captionAttributed
+            }
+        }
+        
+        return cell
+    }
+    
 }

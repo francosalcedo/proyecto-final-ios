@@ -4,6 +4,20 @@ import Firebase
 
 class PostManager {
     
+    static func getPostsAll(response: @escaping ([Post]) -> Void) {
+        var posts: [Post] = []
+        getDocumentsAll { documents in
+            for document in documents {
+                let id = document.documentID
+                let uid = document["uid"] ?? ""
+                let caption = document["caption"] ?? ""
+                let post = Post(id: id,uid: "\(String(describing: uid))", caption: "\(String(describing: caption))")
+                posts.append(post)
+            }
+            response(posts)
+        }
+    }
+    
     static func getPostsByCurrentUser(response: @escaping ([Post]) -> Void) {
         var posts: [Post] = []
         getDocumentsByUser(uid: getCurrentUserUId()) { documents in
@@ -15,6 +29,24 @@ class PostManager {
                 posts.append(post)
             }
             response(posts)
+        }
+    }
+    
+    //MARK: - Private Functions
+    
+    private static func getDocumentsAll(completion: @escaping ([QueryDocumentSnapshot]) -> Void){
+        let ref = getPostsRef()
+        
+        ref.getDocuments() { snapshot, err in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            } else {
+                guard let documents = snapshot?.documents else {
+                    return
+                }
+                completion(documents)
+            }
         }
     }
     

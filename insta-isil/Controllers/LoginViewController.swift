@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
     var passwordLoginTextFieldController: MDCTextInputControllerOutlined?
     
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
         
         let containerScheme = globalContainerScheme()
         
