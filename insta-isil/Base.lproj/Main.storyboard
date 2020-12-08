@@ -1130,6 +1130,9 @@
                                                         <state key="normal" title="Seguir">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="didTapOnFollow:" destination="or6-oi-1Jt" eventType="touchUpInside" id="DLJ-Kj-UUm"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

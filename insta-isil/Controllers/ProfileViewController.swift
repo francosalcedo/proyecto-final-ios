@@ -30,7 +30,6 @@ class ProfileViewController: UIViewController {
             }
             self.setValues()
             self.setupUI()
-            self.uiUserIsntFollowButton()
         }
     }
     
@@ -96,6 +95,16 @@ class ProfileViewController: UIViewController {
         } else {
             self.editProfileButton.isHidden = true
         }
+        
+        uiUserIsntFollowButton()
+        
+        UserFollowerManager.isFollowingByCurrentUser(uid: userFrom.uid) { isFollowed in
+            if isFollowed {
+                self.uiUserIsFollowButton()
+            } else {
+                self.uiUserIsntFollowButton()
+            }
+        }
     }
    
     private func uiUserIsFollowButton() {
@@ -108,5 +117,21 @@ class ProfileViewController: UIViewController {
         let colorPink: CGColor! = CGColor(red: CGFloat(0xFD) / 255.0, green: CGFloat(0x7D) / 255.0, blue: CGFloat(0xFF) / 255.0, alpha: 1)
         followButton.backgroundColor = .white
         followButton.setTitleColor(UIColor(cgColor: colorPink), for: .normal)
+    }
+    //MARK: - Action
+    @IBAction func didTapOnFollow(_ sender: Any) {
+        followButton.isEnabled = false
+        let currentUser = UserManager.getCurrentUser()?.uid
+        
+        UserFollowerManager.isFollowingByCurrentUser(uid: userFrom.uid!) { isFollowed in
+            let userFollower = UserFollower(uid: self.userFrom.uid!, isFollowed: !isFollowed, uid_follower: currentUser ?? "")
+            UserFollowerManager.setUserFollowerToDocument(userFollower)
+            if userFollower.isFollowed {
+                self.uiUserIsFollowButton()
+            } else {
+                self.uiUserIsntFollowButton()
+            }
+            self.followButton.isEnabled = true
+        }
     }
 }

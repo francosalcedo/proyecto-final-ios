@@ -37,7 +37,8 @@
 		BEAD8271257548EC008F211A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAD8270257548EC008F211A /* Post.swift */; };
 		BEB142A0257D3AFF0078E552 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB1429F257D3AFF0078E552 /* UserManager.swift */; };
 		BEB142A5257E834F0078E552 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB142A4257E834F0078E552 /* ShowAlert.swift */; };
-		BEB142AD257F45B70078E552 /* UserFollow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB142AC257F45B70078E552 /* UserFollow.swift */; };
+		BEB142AD257F45B70078E552 /* UserFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB142AC257F45B70078E552 /* UserFollower.swift */; };
+		BEB142B2257F48560078E552 /* UserFollowerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB142B1257F48560078E552 /* UserFollowerManager.swift */; };
 		BEEE7E2B257B44BF0057F50B /* PostCommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE7E2A257B44BF0057F50B /* PostCommentManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +98,8 @@
 		BEAD8270257548EC008F211A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BEB1429F257D3AFF0078E552 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		BEB142A4257E834F0078E552 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
-		BEB142AC257F45B70078E552 /* UserFollow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollow.swift; sourceTree = "<group>"; };
+		BEB142AC257F45B70078E552 /* UserFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollower.swift; sourceTree = "<group>"; };
+		BEB142B1257F48560078E552 /* UserFollowerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowerManager.swift; sourceTree = "<group>"; };
 		BEEE7E2A257B44BF0057F50B /* PostCommentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 				BE4E6E7C257A8676005CD87C /* PostLikeManager.swift */,
 				BEEE7E2A257B44BF0057F50B /* PostCommentManager.swift */,
 				BEB1429F257D3AFF0078E552 /* UserManager.swift */,
+				BEB142B1257F48560078E552 /* UserFollowerManager.swift */,
 			);
 			path = Manangers;
 			sourceTree = "<group>";
@@ -255,7 +258,7 @@
 				BE4E6E77257A801D005CD87C /* PostLike.swift */,
 				BE86B66F257B364100764307 /* PostComment.swift */,
 				BE3B4999257D31A900B17640 /* User.swift */,
-				BEB142AC257F45B70078E552 /* UserFollow.swift */,
+				BEB142AC257F45B70078E552 /* UserFollower.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				BE86B670257B364100764307 /* PostComment.swift in Sources */,
 				2326715F252A4A690043AF10 /* LoginViewController.swift in Sources */,
 				BEAD826B2575475F008F211A /* PostView.swift in Sources */,
+				BEB142B2257F48560078E552 /* UserFollowerManager.swift in Sources */,
 				2326715B252A4A690043AF10 /* AppDelegate.swift in Sources */,
 				BE4E6E78257A801D005CD87C /* PostLike.swift in Sources */,
 				BEAD8271257548EC008F211A /* Post.swift in Sources */,
@@ -469,7 +473,7 @@
 				BE5A5FD62573266400AF4CE6 /* NavViewController.swift in Sources */,
 				BEAD825D25743DDD008F211A /* EditProfileViewController.swift in Sources */,
 				BE7E6F562562CB070074BB0A /* HomeViewController.swift in Sources */,
-				BEB142AD257F45B70078E552 /* UserFollow.swift in Sources */,
+				BEB142AD257F45B70078E552 /* UserFollower.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
