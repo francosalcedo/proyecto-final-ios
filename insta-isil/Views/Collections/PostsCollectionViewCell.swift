@@ -14,12 +14,14 @@ class PostsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var captionTextView: UITextView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     let identifier = "postCell"
     
     var tapLikeButton: (() -> Void)? = nil
     var tapCommentButton: (() -> Void)? = nil
     var tapProfileButton: (() -> Void)? = nil
+    var tapDeleteButton: (() -> Void)? = nil
 
     func setupUILikeButtonIsLiked () {
         likeButton.layer.backgroundColor = CGColor(red: CGFloat(0x00) / 255.0,
@@ -56,5 +58,8 @@ class PostsCollectionViewCell: UICollectionViewCell {
     }
     @IBAction func didTapOnProfileButton(_ sender: UIButton!) {
         tapProfileButton?()
+    }
+    @IBAction func didTapOnDeleteButton(_ sender: UIButton!) {
+        tapDeleteButton?()
     }
 }

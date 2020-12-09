@@ -7,7 +7,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var photoPublishImg: UIImageView!
     @IBOutlet weak var postsCollectionView: UICollectionView!
 
-    var posts_data: [Post] = []
+    var data: [Post] = []
     var postToComment: Post!
     var userToProfile: User!
     
@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureComponents()
         PostManager.getPostsAll{ posts in
-            self.posts_data = posts
+            self.data = posts
             self.postsCollectionView.reloadData()
         }
     }
@@ -80,13 +80,13 @@ extension HomeViewController: UICollectionViewDelegate {
 // MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posts_data.count
+        return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCell" , for: indexPath) as! PostsCollectionViewCell
         
-        let post = posts_data[indexPath.row];
+        let post = data[indexPath.row];
         var user_post: User!
         
         // Get User and Setup UI
@@ -111,6 +111,10 @@ extension HomeViewController: UICollectionViewDataSource {
             let user_name = "\(user?.firstname! ?? "") \(user?.lastname! ?? "")"
             
             cell.nameUserLabel.text = user_name
+            
+            if UserManager.getCurrentUser()?.uid == post.uid {
+                cell.deleteButton.isHidden = false
+            }
             //get User
             user_post = user
         }
@@ -134,13 +138,24 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.tapCommentButton = {
             self.postToComment = post
         }
-        
         cell.tapProfileButton = {
             self.userToProfile = user_post
         }
+        cell.tapDeleteButton = {
+            PostManager.deletePostByPostId(post.id!)
+            PostManager.getPostsAll{ posts in
+                self.data = posts
+                self.postsCollectionView.reloadData()
+                //self.postsCollectionView.reloadInputViews()
+            }
+            
+        }
+        
+        //
+        cell.deleteButton.isHidden = true
         cell.backgroundColor = .white
         cell.captionTextView.text = post.caption
-        PostLikeManager.isLikedByCurrentUser(postId: self.posts_data[indexPath.row].id ?? "") { isLiked in
+        PostLikeManager.isLikedByCurrentUser(postId: post.id ?? "") { isLiked in
             if isLiked {
                 cell.setupUILikeButtonIsLiked()
             } else {

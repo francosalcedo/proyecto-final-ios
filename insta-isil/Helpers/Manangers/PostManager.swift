@@ -32,6 +32,16 @@ class PostManager {
         }
     }
     
+    static func deletePostByPostId(_ postId: String) {
+        getPostsRef().document(postId).delete() { err in
+            if let err = err {
+                print(err.localizedDescription)
+            } else {
+                print("Borro exitosamente")
+            }
+        }
+    }
+    
     //MARK: - Private Functions
     
     private static func getDocumentsAll(completion: @escaping ([QueryDocumentSnapshot]) -> Void){

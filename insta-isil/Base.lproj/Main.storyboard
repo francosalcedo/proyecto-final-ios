@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -562,7 +563,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgh-g3-4bw">
-                                                            <rect key="frame" x="80" y="29.5" width="47.5" height="21.5"/>
+                                                            <rect key="frame" x="80" y="29.5" width="204" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -605,25 +606,41 @@
                                                                 <segue destination="k4l-0D-Gv3" kind="presentation" identifier="toComment" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="PxK-fP-wrG"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aex-iG-ltF">
-                                                            <rect key="frame" x="314" y="20" width="80" height="40"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aex-iG-ltF">
+                                                            <rect key="frame" x="354" y="20" width="40" height="40"/>
                                                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="MZF-xs-VJQ"/>
+                                                                <constraint firstAttribute="width" constant="40" id="MZF-xs-VJQ"/>
                                                                 <constraint firstAttribute="height" constant="40" id="XPa-dX-fuh"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                            <state key="normal" title="Ver Perfil">
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <state key="normal">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <imageReference key="image" image="person.fill" catalog="system" symbolScale="large"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="didTapOnProfileButton:" destination="d8E-C2-J60" eventType="touchUpInside" id="dn4-KU-SYG"/>
                                                                 <segue destination="or6-oi-1Jt" kind="presentation" identifier="toProfile" modalPresentationStyle="fullScreen" id="xAy-Hz-kHy"/>
                                                             </connections>
                                                         </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4K2-Fi-76Z">
+                                                            <rect key="frame" x="304" y="20" width="40" height="40"/>
+                                                            <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="gTo-QW-3rC"/>
+                                                                <constraint firstAttribute="height" constant="40" id="rjK-09-k6w"/>
+                                                            </constraints>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <state key="normal" image="xmark.bin.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="didTapOnDeleteButton:" destination="d8E-C2-J60" eventType="touchUpInside" id="Rhw-NQ-GWl"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="aex-iG-ltF" firstAttribute="leading" secondItem="4K2-Fi-76Z" secondAttribute="trailing" constant="10" id="2Oa-U5-SW3"/>
                                                         <constraint firstItem="7Pc-BV-ebb" firstAttribute="top" secondItem="Gpt-DI-NpL" secondAttribute="bottom" constant="10" id="7AE-V4-SVh"/>
+                                                        <constraint firstItem="4K2-Fi-76Z" firstAttribute="leading" secondItem="Vgh-g3-4bw" secondAttribute="trailing" constant="20" id="83A-ow-m5o"/>
                                                         <constraint firstItem="Gpt-DI-NpL" firstAttribute="leading" secondItem="yjz-Oi-pOa" secondAttribute="leading" constant="20" id="9hD-JB-NU0"/>
                                                         <constraint firstItem="mfM-bl-c7O" firstAttribute="top" secondItem="7Pc-BV-ebb" secondAttribute="bottom" constant="10" id="B09-Po-9L9"/>
                                                         <constraint firstAttribute="trailing" secondItem="7Pc-BV-ebb" secondAttribute="trailing" constant="20" id="Hfu-mQ-8jL"/>
@@ -633,6 +650,7 @@
                                                         <constraint firstItem="7Pc-BV-ebb" firstAttribute="leading" secondItem="yjz-Oi-pOa" secondAttribute="leading" constant="20" id="e0i-zW-tl0"/>
                                                         <constraint firstItem="4X5-un-lQv" firstAttribute="top" secondItem="7Pc-BV-ebb" secondAttribute="bottom" constant="10" id="fgI-pS-5Lk"/>
                                                         <constraint firstItem="Vgh-g3-4bw" firstAttribute="leading" secondItem="Gpt-DI-NpL" secondAttribute="trailing" constant="20" id="i8J-RU-Ako"/>
+                                                        <constraint firstItem="aex-iG-ltF" firstAttribute="centerY" secondItem="4K2-Fi-76Z" secondAttribute="centerY" id="iq1-Hm-npU"/>
                                                         <constraint firstAttribute="trailing" secondItem="aex-iG-ltF" secondAttribute="trailing" constant="20" id="kSK-Ae-69G"/>
                                                         <constraint firstItem="Gpt-DI-NpL" firstAttribute="top" secondItem="yjz-Oi-pOa" secondAttribute="top" constant="20" id="lA1-1J-kas"/>
                                                         <constraint firstItem="4X5-un-lQv" firstAttribute="leading" secondItem="mfM-bl-c7O" secondAttribute="trailing" constant="10" id="m1J-Q2-MST"/>
@@ -642,6 +660,7 @@
                                                 <connections>
                                                     <outlet property="captionTextView" destination="7Pc-BV-ebb" id="uYr-62-Tgz"/>
                                                     <outlet property="commentButton" destination="4X5-un-lQv" id="of6-97-HfX"/>
+                                                    <outlet property="deleteButton" destination="4K2-Fi-76Z" id="WCS-W9-7oJ"/>
                                                     <outlet property="likeButton" destination="mfM-bl-c7O" id="Yui-6j-hJi"/>
                                                     <outlet property="nameUserLabel" destination="Vgh-g3-4bw" id="4aN-EI-dHs"/>
                                                     <outlet property="photoUserImageView" destination="Gpt-DI-NpL" id="6Uy-il-yxs"/>
@@ -1367,7 +1386,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6QZ-bi-YUN"/>
+        <segue reference="AYf-sN-nTF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="btn-pencil" width="13" height="13"/>
@@ -1378,9 +1397,11 @@
         <image name="logo" width="166" height="115"/>
         <image name="logo-landscape-mini" width="116.5" height="25"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="waves-down" width="375" height="178"/>
         <image name="waves-up" width="375" height="123"/>
         <image name="x.circle" catalog="system" width="128" height="121"/>
+        <image name="xmark.bin.fill" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1389,6 +1410,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
