@@ -36,10 +36,19 @@ class CommentsViewController: UIViewController {
             let uid = UserManager.getCurrentUser()?.uid
             
             let postComment = PostComment(id: UUID().uuidString, postId: self.post.id ?? "", caption: caption ?? "", uid: uid!)
+            
             PostCommentManager.setPostCommentToDocument(postComment: postComment)
-            commentsCollectionView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                PostCommentManager.getPostCommentsByPostId(postId: self.post.id ?? "") { postComments in
+                    self.postComments_data = postComments
+                    self.commentsCollectionView.reloadData()
+                    self.submitButton.isEnabled = true
+                }
+            }
+            captionTextView.text = ""
+        } else {
+            submitButton.isEnabled = true
         }
-        submitButton.isEnabled = true
     }
     
     @IBAction func didTapReturnButton(_ sender: Any) {
