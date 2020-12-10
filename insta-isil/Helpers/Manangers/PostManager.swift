@@ -7,38 +7,20 @@ class PostManager {
     static func getPostsAll(response: @escaping ([Post]) -> Void) {
         var posts: [Post] = []
         getDocumentsAll { documents in
-            for document in documents {
-                let id = document.documentID
-                let uid = document["uid"] ?? ""
-                let caption = document["caption"] ?? ""
-                let post = Post(id: id,uid: "\(String(describing: uid))", caption: "\(String(describing: caption))")
-                posts.append(post)
-            }
-            response(posts)
+
         }
     }
     
     static func getPostsByCurrentUser(response: @escaping ([Post]) -> Void) {
         var posts: [Post] = []
         getDocumentsByUser(uid: getCurrentUserUId()) { documents in
-            for document in documents {
-                let id = document.documentID
-                let uid = document["uid"] ?? ""
-                let caption = document["caption"] ?? ""
-                let post = Post(id: id,uid: "\(String(describing: uid))", caption: "\(String(describing: caption))")
-                posts.append(post)
-            }
-            response(posts)
+
         }
     }
     
     static func deletePostByPostId(_ postId: String) {
         getPostsRef().document(postId).delete() { err in
-            if let err = err {
-                print(err.localizedDescription)
-            } else {
-                print("Borro exitosamente")
-            }
+
         }
     }
     
@@ -86,8 +68,6 @@ class PostManager {
     }
     
     private static func getPostsRef() -> CollectionReference {
-        let db = Firestore.firestore()
-        let postRef = db.collection("posts")
-        return postRef
+
     }
 }
