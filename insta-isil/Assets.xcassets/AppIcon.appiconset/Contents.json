@@ -31,11 +31,13 @@
       "size" : "40x40"
     },
     {
+      "filename" : "InstaISIL-Ico-120.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
+      "filename" : "InstaISIL-Ico-180.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
